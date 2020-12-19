@@ -8,4 +8,10 @@
     <PackageReference Include="AutoMapper" Version="10.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FigureDB.IService\FigureDB.IService.csproj" />
+    <ProjectReference Include="..\FigureDB.Model\FigureDB.Model.csproj" />
+    <ProjectReference Include="..\FigureDB.Repository\FigureDB.Repository.csproj" />
+  </ItemGroup>
+
 </Project>
