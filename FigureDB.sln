@@ -5,15 +5,17 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureDB.Repository", "FigureDB.Repository\FigureDB.Repository.csproj", "{F417DE39-218B-4ED4-87B3-6A811811922C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureDB.IRepository", "FigureDB.IRepository\FigureDB.IRepository.csproj", "{F3956396-B599-4BC1-8B01-381CE4E0FE6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureDB.IRepository", "FigureDB.IRepository\FigureDB.IRepository.csproj", "{F3956396-B599-4BC1-8B01-381CE4E0FE6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureDB.IService", "FigureDB.IService\FigureDB.IService.csproj", "{476C1AD9-71DF-481E-BA75-9BED7AD1938A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureDB.IService", "FigureDB.IService\FigureDB.IService.csproj", "{476C1AD9-71DF-481E-BA75-9BED7AD1938A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureDB.Service", "FigureDB.Service\FigureDB.Service.csproj", "{554664FE-D7AC-4F93-9731-8A854FACA0AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureDB.Service", "FigureDB.Service\FigureDB.Service.csproj", "{554664FE-D7AC-4F93-9731-8A854FACA0AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureDB.Common", "FigureDB.Common\FigureDB.Common.csproj", "{252A5101-CD48-4E6E-A2AD-CB27A2408491}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureDB.Common", "FigureDB.Common\FigureDB.Common.csproj", "{252A5101-CD48-4E6E-A2AD-CB27A2408491}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureDB.WebAPI", "FigureDB.WebAPI\FigureDB.WebAPI.csproj", "{7E55D3CE-F241-4858-A892-1B765291F695}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureDB.WebAPI", "FigureDB.WebAPI\FigureDB.WebAPI.csproj", "{7E55D3CE-F241-4858-A892-1B765291F695}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureDB.Model", "FigureDB.Model\FigureDB.Model.csproj", "{FD4DE3E7-CCB3-43D6-AE97-018228F0C22A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{7E55D3CE-F241-4858-A892-1B765291F695}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E55D3CE-F241-4858-A892-1B765291F695}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E55D3CE-F241-4858-A892-1B765291F695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD4DE3E7-CCB3-43D6-AE97-018228F0C22A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD4DE3E7-CCB3-43D6-AE97-018228F0C22A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD4DE3E7-CCB3-43D6-AE97-018228F0C22A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD4DE3E7-CCB3-43D6-AE97-018228F0C22A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
