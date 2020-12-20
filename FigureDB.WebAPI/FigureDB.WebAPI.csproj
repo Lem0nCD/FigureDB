@@ -6,7 +6,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath></OutputPath>
-    <DocumentationFile>D:\workspace\FigureDB\FigureDB.WebAPI\FigureDB.WebAPI.xml</DocumentationFile>
+    <DocumentationFile>obj\Debug\netcoreapp3.1\FigureDB.WebAPI.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
