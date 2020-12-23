@@ -1,21 +1,16 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Newtonsoft;
 using Newtonsoft.Json.Serialization;
 using System.Reflection;
 using System.IO;
 using AutoMapper;
-using Autofac;
+using FigureDB.WebAPI.Extensions;
+using Microsoft.EntityFrameworkCore;
+using FigureDB.Model.Context;
 
 namespace FigureDB.WebAPI
 {
@@ -31,7 +26,11 @@ namespace FigureDB.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            //services.AddDBContext(Configuration);
+            services.AddDbContext<MainContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            });
             services.AddControllers(setup =>
             {
                 setup.ReturnHttpNotAcceptable = true;
