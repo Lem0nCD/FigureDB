@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FigureDB.IService;
 using FigureDB.Model.Entities;
+using FigureDB.Model.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -27,9 +28,11 @@ namespace FigureDB.WebAPI.Controllers
         }
         // GET: api/<UserController>
         [HttpGet]
-        public async Task<IEnumerable<User>> Get()
+        public async Task<PaginationDTO<List<User>>> Get()
         {
-            return await _service.GetUserAsync();
+            List<User> users = await _service.GetUserAsync();
+            PaginationDTO<List<User>> result = new PaginationDTO<List<User>>(users.Count, users);
+            return result;
         }
 
         // GET api/<UserController>/5

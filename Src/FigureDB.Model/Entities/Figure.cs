@@ -96,6 +96,11 @@ namespace FigureDB.Model.Entities
         public FigureSeries FigureSeries { get; set; }
 
         /// <summary>
+        /// 图片外键
+        /// </summary>
+        public IList<FigureImage> FigureImages { get; set; }
+
+        /// <summary>
         /// 模型-分类
         /// </summary>
         public IList<FigureCategory> FigureCategories { get; set; }

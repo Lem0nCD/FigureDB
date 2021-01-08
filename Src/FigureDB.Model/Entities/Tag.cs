@@ -1,6 +1,7 @@
 ﻿using FigureDB.Model.Entities.Base;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 
 namespace FigureDB.Model.Entities
@@ -14,6 +15,10 @@ namespace FigureDB.Model.Entities
         /// 标签名字
         /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// 颜色
+        /// </summary>
+        public string Color { get; set; }
 
         /// <summary>
         /// 模型-标签

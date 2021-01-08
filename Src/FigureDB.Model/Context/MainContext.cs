@@ -15,6 +15,7 @@ namespace FigureDB.Model.Context
             modelBuilder.Entity<Comment>().HasOne(x => x.User).WithMany(x => x.Comments);
             modelBuilder.Entity<Favorite>().HasOne(x => x.User).WithMany(x => x.Favorites);
 
+            modelBuilder.Entity<FigureImage>().HasOne(x => x.Figure).WithMany(x => x.FigureImages);
             modelBuilder.Entity<FigureCategory>().HasOne(x => x.Category).WithMany(x => x.FigureCategories);
             modelBuilder.Entity<FigureCategory>().HasOne(x => x.Figure).WithMany(x => x.FigureCategories);
             modelBuilder.Entity<FigureSeries>().HasOne(x => x.Series).WithMany(x => x.FigureSeries);
@@ -47,6 +48,7 @@ namespace FigureDB.Model.Context
         public DbSet<Company> Companies { get; set; }
         public DbSet<Favorite> Favorites { get; set; }
         public DbSet<Figure> Figures { get; set; }
+        public DbSet<FigureImage> FigureImages { get; set; }
         public DbSet<FigureCategory> FigureCategories { get; set; }
         public DbSet<FigureSeries> FigureSeries { get; set; }
         public DbSet<FigureTag> FigureTags { get; set; }
