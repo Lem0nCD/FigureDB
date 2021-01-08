@@ -35,5 +35,10 @@
     <ProjectReference Include="..\FigureDB.Service\FigureDB.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\image\avatar\" />
+    <Folder Include="wwwroot\image\figure\" />
+  </ItemGroup>
+
 
 </Project>

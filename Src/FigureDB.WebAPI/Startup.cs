@@ -99,7 +99,7 @@ namespace FigureDB.WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStaticFiles();
             app.UseSwagger();
 
             app.UseSwaggerUI(setup =>
