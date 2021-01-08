@@ -1,16 +1,20 @@
+using Autofac;
+using AutoMapper;
+using FigureDB.IService;
+using FigureDB.Model.DTO;
+using FigureDB.Model.Enum;
+using FigureDB.Service;
+using FigureDB.WebAPI.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
 using Newtonsoft.Json.Serialization;
-using System.Reflection;
+using System;
 using System.IO;
-using AutoMapper;
-using FigureDB.WebAPI.Extensions;
-using Microsoft.EntityFrameworkCore;
-using FigureDB.Model.Context;
+using System.Reflection;
 
 namespace FigureDB.WebAPI
 {
@@ -26,11 +30,11 @@ namespace FigureDB.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDBContext(Configuration);
-            services.AddDbContext<MainContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            });
+            services.AddDBContext(Configuration);
+            //services.AddDbContext<MainContext>(options =>
+            //{
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            //});
             services.AddControllers(setup =>
             {
                 setup.ReturnHttpNotAcceptable = true;
@@ -41,22 +45,22 @@ namespace FigureDB.WebAPI
                         new CamelCasePropertyNamesContractResolver();
                     setup.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 })
-                .AddXmlDataContractSerializerFormatters();
-                //.ConfigureApiBehaviorOptions(setup =>
-                //{
-                //    setup.InvalidModelStateResponseFactory = context =>
-                //    {
-                //        var problemDetails = new ValidationProblemDetails(context.ModelState);
-                //        problemDetails.Extensions.Add("traceId", context.HttpContext.TraceIdentifier);
+                .AddXmlDataContractSerializerFormatters()
+                .ConfigureApiBehaviorOptions(setup =>
+                {
+                    setup.InvalidModelStateResponseFactory = context =>
+                    {
+                        var problemDetails = new ValidationProblemDetails(context.ModelState);
+                        problemDetails.Extensions.Add("traceId", context.HttpContext.TraceIdentifier);
 
-            //        var resultDto = new UnifyResponseDto(Model.DTO.Enum.StatusCode.ParameterErroe, problemDetails.Errors);
+                        var resultDto = new UnifyResponseDto(StatusCode.ParameterErroe, problemDetails.Errors);
 
-            //        return new UnprocessableEntityObjectResult(resultDto)
-            //        {
-            //            ContentTypes = { "application/problem+json" }
-            //        };
-            //    };
-            //});
+                        return new UnprocessableEntityObjectResult(resultDto)
+                        {
+                            ContentTypes = { "application/problem+json" }
+                        };
+                    };
+                });
 
             services.AddMvc();
 
@@ -72,20 +76,21 @@ namespace FigureDB.WebAPI
 
         }
 
-        //public void ConfigureContainer(ContainerBuilder builder)
-        //{
-        //    Assembly assemblysRepository = Assembly.Load("Inspirator.Repository");
-        //    Assembly assemblysService = Assembly.Load("Inspirator.Service");
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
+            Assembly assemblysRepository = Assembly.Load("FigureDB.Repository");
+            Assembly assemblysService = Assembly.Load("FigureDB.Service");
 
-        //    builder.RegisterAssemblyTypes(assemblysRepository)
-        //        //.Where(t => t.Name.EndsWith("Repository"))
-        //        .AsImplementedInterfaces()
-        //        .InstancePerLifetimeScope();
-        //    builder.RegisterAssemblyTypes(assemblysService)
-        //        //.Where(t => t.Name.EndsWith("Service"))
-        //        .AsImplementedInterfaces()
-        //        .InstancePerLifetimeScope();
-        //}
+            builder.RegisterAssemblyTypes(assemblysRepository)
+                //.Where(t => t.Name.EndsWith("Repository"))
+                .AsImplementedInterfaces()
+                .InstancePerLifetimeScope();
+            builder.RegisterAssemblyTypes(assemblysService)
+                //.Where(t => t.Name.EndsWith("Service"))
+                .AsImplementedInterfaces()
+                .InstancePerLifetimeScope();
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

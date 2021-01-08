@@ -5,21 +5,21 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Inspirator.IRepository
+namespace FigureDB.IRepository
 {
-    public interface IGenericRepository<T1, T2> where T1 : BaseEntity<T2> where T2 : struct
+    public interface IGenericRepository<TEntity, TKey> where TEntity : BaseEntity<TKey> where TKey : IEquatable<TKey>
     {
-        Task<T1> FindAsync(Guid Id);
-        Task<T1> FindAsync(T1 Entity);
-        IQueryable<T1> Find();
-        IQueryable<T1> Find(int page, int size);
-        IQueryable<T1> Find(Expression<Func<T1, bool>> expression);
-        IQueryable<T1> Find(Expression<Func<T1, bool>> expression, int page, int size);
-        Task InsertAsync(T1 entity);
-        Task InsertAsync(List<T1> entities);
-        Task UpdateAsync(T1 entity);
-        Task RemoveAsync(T1 entity);
-        Task DeleteAsync(T1 entity);
+        Task<TEntity> FindAsync(TKey Id);
+        Task<TEntity> FindAsync(TEntity Entity);
+        IQueryable<TEntity> Find();
+        IQueryable<TEntity> Find(int page, int size);
+        IQueryable<TEntity> Find(Expression<Func<TEntity, bool>> expression);
+        IQueryable<TEntity> Find(Expression<Func<TEntity, bool>> expression, int page, int size);
+        Task InsertAsync(TEntity entity);
+        Task InsertAsync(List<TEntity> entities);
+        Task UpdateAsync(TEntity entity);
+        Task RemoveAsync(TEntity entity);
+        Task DeleteAsync(TEntity entity);
         //IQueryable<TEntity> InnerJoin(TEntity inner, TEntity outer);
     }
 }
