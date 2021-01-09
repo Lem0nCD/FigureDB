@@ -26,11 +26,11 @@ namespace FigureDB.Service
         //    _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         //}
 
-        public UserService(IUserRepository repository/*, IMapper mapper, IUnitOfWork unitOfWork*/)
+        public UserService(IUserRepository repository, IMapper mapper, IUnitOfWork unitOfWork)
         {
             this._repository = repository ?? throw new ArgumentNullException(nameof(repository));
-            //_mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-            //_unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
         //public UserService(IGenericRepository<User, Guid> repository,IUnitOfWork unitOfWork)
