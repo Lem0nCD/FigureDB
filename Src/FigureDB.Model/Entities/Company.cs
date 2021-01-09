@@ -11,12 +11,12 @@ namespace FigureDB.Model.Entities
     public class Company : BaseEntity<int>
     {
         /// <summary>
-        /// 原名
+        /// 公司名字
         /// </summary>
-        public string OriginalName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
-        /// 中文名
+        /// 公司中文名字
         /// </summary>
         public string CHNName { get; set; }
 
@@ -34,6 +34,7 @@ namespace FigureDB.Model.Entities
         /// 简介
         /// </summary>
         public string About { get; set; }
+
 
         /// <summary>
         /// 模型-发行商

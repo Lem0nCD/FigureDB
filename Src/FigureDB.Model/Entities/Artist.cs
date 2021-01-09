@@ -6,17 +6,17 @@ using System.Text;
 namespace FigureDB.Model.Entities
 {
     /// <summary>
-    /// 制作人员信息
+    /// 制作人员
     /// </summary>
     public class Artist : BaseEntity<int>
     {
         /// <summary>
-        /// 原名
+        /// 制作人员名字
         /// </summary>
-        public string OriginalName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
-        /// 中文名
+        /// 制作人员中文名字
         /// </summary>
         public string CHNName { get; set; }
 

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FigureDB.Model.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initialcreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,7 @@ namespace FigureDB.Model.Migrations
                     IsRemove = table.Column<bool>(nullable: false),
                     CreateTime = table.Column<DateTime>(nullable: false),
                     ModifyTime = table.Column<DateTime>(nullable: true),
-                    OriginalName = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
                     CHNName = table.Column<string>(nullable: true),
                     Avator = table.Column<string>(nullable: true),
                     About = table.Column<string>(nullable: true)
@@ -52,6 +52,7 @@ namespace FigureDB.Model.Migrations
                     CreateTime = table.Column<DateTime>(nullable: false),
                     ModifyTime = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
+                    CHNName = table.Column<string>(nullable: true),
                     About = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -68,7 +69,7 @@ namespace FigureDB.Model.Migrations
                     IsRemove = table.Column<bool>(nullable: false),
                     CreateTime = table.Column<DateTime>(nullable: false),
                     ModifyTime = table.Column<DateTime>(nullable: true),
-                    OriginalName = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
                     CHNName = table.Column<string>(nullable: true),
                     Icon = table.Column<string>(nullable: true),
                     Homepage = table.Column<string>(nullable: true),
@@ -105,6 +106,7 @@ namespace FigureDB.Model.Migrations
                     CreateTime = table.Column<DateTime>(nullable: false),
                     ModifyTime = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
+                    CHNName = table.Column<string>(nullable: true),
                     About = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -176,6 +178,7 @@ namespace FigureDB.Model.Migrations
                     CreateTime = table.Column<DateTime>(nullable: false),
                     ModifyTime = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
+                    CHNName = table.Column<string>(nullable: true),
                     About = table.Column<string>(nullable: true),
                     CompanyId = table.Column<int>(nullable: false)
                 },
@@ -188,56 +191,6 @@ namespace FigureDB.Model.Migrations
                         principalTable: "Companies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Figures",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    IsRemove = table.Column<bool>(nullable: false),
-                    CreateTime = table.Column<DateTime>(nullable: false),
-                    ModifyTime = table.Column<DateTime>(nullable: true),
-                    OriginalName = table.Column<string>(nullable: true),
-                    CHNName = table.Column<string>(nullable: true),
-                    Scale = table.Column<float>(nullable: false),
-                    Dimensions = table.Column<float>(nullable: false),
-                    Materials = table.Column<string>(nullable: true),
-                    Release = table.Column<DateTime>(nullable: false),
-                    PublishedId = table.Column<int>(nullable: false),
-                    PublicedId = table.Column<int>(nullable: true),
-                    ManufacturerId = table.Column<int>(nullable: false),
-                    OriginId = table.Column<int>(nullable: false),
-                    CharacterId = table.Column<int>(nullable: false),
-                    FigureSerisesId = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Figures", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Figures_Characters_CharacterId",
-                        column: x => x.CharacterId,
-                        principalTable: "Characters",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Figures_Companies_ManufacturerId",
-                        column: x => x.ManufacturerId,
-                        principalTable: "Companies",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Figures_Origins_OriginId",
-                        column: x => x.OriginId,
-                        principalTable: "Origins",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Figures_Companies_PublicedId",
-                        column: x => x.PublicedId,
-                        principalTable: "Companies",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -288,6 +241,61 @@ namespace FigureDB.Model.Migrations
                         name: "FK_UserRoles_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Figures",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    IsRemove = table.Column<bool>(nullable: false),
+                    CreateTime = table.Column<DateTime>(nullable: false),
+                    ModifyTime = table.Column<DateTime>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    CHNName = table.Column<string>(nullable: true),
+                    Scale = table.Column<float>(nullable: false),
+                    Dimensions = table.Column<float>(nullable: false),
+                    Materials = table.Column<string>(nullable: true),
+                    Release = table.Column<DateTime>(nullable: false),
+                    PublishedId = table.Column<int>(nullable: false),
+                    ManufacturerId = table.Column<int>(nullable: false),
+                    OriginId = table.Column<int>(nullable: false),
+                    CharacterId = table.Column<int>(nullable: false),
+                    SeriesId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Figures", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Figures_Characters_CharacterId",
+                        column: x => x.CharacterId,
+                        principalTable: "Characters",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Figures_Companies_ManufacturerId",
+                        column: x => x.ManufacturerId,
+                        principalTable: "Companies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Figures_Origins_OriginId",
+                        column: x => x.OriginId,
+                        principalTable: "Origins",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Figures_Companies_PublishedId",
+                        column: x => x.PublishedId,
+                        principalTable: "Companies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Figures_Series_SeriesId",
+                        column: x => x.SeriesId,
+                        principalTable: "Series",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -432,34 +440,6 @@ namespace FigureDB.Model.Migrations
                         name: "FK_FigureImages_Figures_FigureId",
                         column: x => x.FigureId,
                         principalTable: "Figures",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "FigureSeries",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    IsRemove = table.Column<bool>(nullable: false),
-                    CreateTime = table.Column<DateTime>(nullable: false),
-                    ModifyTime = table.Column<DateTime>(nullable: true),
-                    SeriesId = table.Column<int>(nullable: false),
-                    FigureId = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FigureSeries", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_FigureSeries_Figures_FigureId",
-                        column: x => x.FigureId,
-                        principalTable: "Figures",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_FigureSeries_Series_SeriesId",
-                        column: x => x.SeriesId,
-                        principalTable: "Series",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -646,19 +626,13 @@ namespace FigureDB.Model.Migrations
                 column: "OriginId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Figures_PublicedId",
+                name: "IX_Figures_PublishedId",
                 table: "Figures",
-                column: "PublicedId");
+                column: "PublishedId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FigureSeries_FigureId",
-                table: "FigureSeries",
-                column: "FigureId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_FigureSeries_SeriesId",
-                table: "FigureSeries",
+                name: "IX_Figures_SeriesId",
+                table: "Figures",
                 column: "SeriesId");
 
             migrationBuilder.CreateIndex(
@@ -742,9 +716,6 @@ namespace FigureDB.Model.Migrations
                 name: "FigureImages");
 
             migrationBuilder.DropTable(
-                name: "FigureSeries");
-
-            migrationBuilder.DropTable(
                 name: "FigureTags");
 
             migrationBuilder.DropTable(
@@ -769,9 +740,6 @@ namespace FigureDB.Model.Migrations
                 name: "Categories");
 
             migrationBuilder.DropTable(
-                name: "Series");
-
-            migrationBuilder.DropTable(
                 name: "Tags");
 
             migrationBuilder.DropTable(
@@ -790,10 +758,13 @@ namespace FigureDB.Model.Migrations
                 name: "Characters");
 
             migrationBuilder.DropTable(
-                name: "Companies");
+                name: "Origins");
 
             migrationBuilder.DropTable(
-                name: "Origins");
+                name: "Series");
+
+            migrationBuilder.DropTable(
+                name: "Companies");
         }
     }
 }

@@ -13,7 +13,11 @@ namespace FigureDB.Model.Entities
         /// <summary>
         /// 系列名字
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; set; }        
+        /// <summary>
+        /// 系列中文名字
+        /// </summary>
+        public string CHNName { get; set; }
 
         /// <summary>
         /// 简介
@@ -29,6 +33,6 @@ namespace FigureDB.Model.Entities
         /// <summary>
         /// 模型-系列
         /// </summary>
-        public IList<FigureSeries> FigureSeries { get; set; }
+        public IList<Figure> Figures { get; set; }
     }
 }

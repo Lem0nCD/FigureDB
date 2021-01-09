@@ -18,15 +18,15 @@ namespace FigureDB.Model.Context
             modelBuilder.Entity<FigureImage>().HasOne(x => x.Figure).WithMany(x => x.FigureImages);
             modelBuilder.Entity<FigureCategory>().HasOne(x => x.Category).WithMany(x => x.FigureCategories);
             modelBuilder.Entity<FigureCategory>().HasOne(x => x.Figure).WithMany(x => x.FigureCategories);
-            modelBuilder.Entity<FigureSeries>().HasOne(x => x.Series).WithMany(x => x.FigureSeries);
-            modelBuilder.Entity<FigureSeries>().HasOne(x => x.Figure).WithOne(x => x.FigureSeries).HasForeignKey<FigureSeries>(x => x.FigureId).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<FigureTag>().HasOne(x => x.Figure).WithMany(x => x.FigureTags);
             modelBuilder.Entity<FigureTag>().HasOne(x => x.Tag).WithMany(x => x.FigureTags);
 
             modelBuilder.Entity<Figure>().HasOne(x => x.Character).WithMany(x => x.Figures);
-            modelBuilder.Entity<Figure>().HasOne(x => x.Publiced).WithMany(x => x.Publiceds);
-            modelBuilder.Entity<Figure>().HasOne(x => x.Manufacturer).WithMany(x => x.Manufacturers);
             modelBuilder.Entity<Figure>().HasOne(x => x.Origin).WithMany(x => x.Figures);
+            modelBuilder.Entity<Figure>().HasOne(x => x.Published).WithMany(x => x.Publiceds).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Figure>().HasOne(x => x.Manufacturer).WithMany(x => x.Manufacturers).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Figure>().HasOne(x => x.Series).WithMany(x => x.Figures).OnDelete(DeleteBehavior.Restrict);
+
             modelBuilder.Entity<News>().HasOne(x => x.Figure).WithMany(x => x.News);
             modelBuilder.Entity<News>().HasOne(x => x.User).WithMany(x => x.News);
             modelBuilder.Entity<Offer>().HasOne(x => x.Figure).WithMany(x => x.Offers);
@@ -50,7 +50,6 @@ namespace FigureDB.Model.Context
         public DbSet<Figure> Figures { get; set; }
         public DbSet<FigureImage> FigureImages { get; set; }
         public DbSet<FigureCategory> FigureCategories { get; set; }
-        public DbSet<FigureSeries> FigureSeries { get; set; }
         public DbSet<FigureTag> FigureTags { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<News> News { get; set; }

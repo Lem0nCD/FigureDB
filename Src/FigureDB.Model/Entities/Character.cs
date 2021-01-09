@@ -14,6 +14,10 @@ namespace FigureDB.Model.Entities
         /// 原型角色名字
         /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// 原型角色中文名字
+        /// </summary>
+        public string CHNName { get; set; }
 
         /// <summary>
         /// 简介

@@ -44,7 +44,7 @@ namespace FigureDB.Model.Migrations
                     b.Property<DateTime?>("ModifyTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("OriginalName")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -119,6 +119,9 @@ namespace FigureDB.Model.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("About")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CHNName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateTime")
@@ -202,7 +205,7 @@ namespace FigureDB.Model.Migrations
                     b.Property<DateTime?>("ModifyTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("OriginalName")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -261,9 +264,6 @@ namespace FigureDB.Model.Migrations
                     b.Property<float>("Dimensions")
                         .HasColumnType("real");
 
-                    b.Property<Guid>("FigureSerisesId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<bool>("IsRemove")
                         .HasColumnType("bit");
 
@@ -276,13 +276,10 @@ namespace FigureDB.Model.Migrations
                     b.Property<DateTime?>("ModifyTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("OriginId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("OriginalName")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PublicedId")
+                    b.Property<int>("OriginId")
                         .HasColumnType("int");
 
                     b.Property<int>("PublishedId")
@@ -294,6 +291,9 @@ namespace FigureDB.Model.Migrations
                     b.Property<float>("Scale")
                         .HasColumnType("real");
 
+                    b.Property<int>("SeriesId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CharacterId");
@@ -302,7 +302,9 @@ namespace FigureDB.Model.Migrations
 
                     b.HasIndex("OriginId");
 
-                    b.HasIndex("PublicedId");
+                    b.HasIndex("PublishedId");
+
+                    b.HasIndex("SeriesId");
 
                     b.ToTable("Figures");
                 });
@@ -363,37 +365,6 @@ namespace FigureDB.Model.Migrations
                     b.HasIndex("FigureId");
 
                     b.ToTable("FigureImages");
-                });
-
-            modelBuilder.Entity("FigureDB.Model.Entities.FigureSeries", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("FigureId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsRemove")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifyTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("SeriesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FigureId")
-                        .IsUnique();
-
-                    b.HasIndex("SeriesId");
-
-                    b.ToTable("FigureSeries");
                 });
 
             modelBuilder.Entity("FigureDB.Model.Entities.FigureTag", b =>
@@ -526,6 +497,9 @@ namespace FigureDB.Model.Migrations
                     b.Property<string>("About")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CHNName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime2");
 
@@ -578,6 +552,9 @@ namespace FigureDB.Model.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("About")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CHNName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CompanyId")
@@ -832,7 +809,7 @@ namespace FigureDB.Model.Migrations
                     b.HasOne("FigureDB.Model.Entities.Company", "Manufacturer")
                         .WithMany("Manufacturers")
                         .HasForeignKey("ManufacturerId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("FigureDB.Model.Entities.Origin", "Origin")
@@ -841,9 +818,17 @@ namespace FigureDB.Model.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FigureDB.Model.Entities.Company", "Publiced")
+                    b.HasOne("FigureDB.Model.Entities.Company", "Published")
                         .WithMany("Publiceds")
-                        .HasForeignKey("PublicedId");
+                        .HasForeignKey("PublishedId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("FigureDB.Model.Entities.Series", "Series")
+                        .WithMany("Figures")
+                        .HasForeignKey("SeriesId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("FigureDB.Model.Entities.FigureCategory", b =>
@@ -866,21 +851,6 @@ namespace FigureDB.Model.Migrations
                     b.HasOne("FigureDB.Model.Entities.Figure", "Figure")
                         .WithMany("FigureImages")
                         .HasForeignKey("FigureId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("FigureDB.Model.Entities.FigureSeries", b =>
-                {
-                    b.HasOne("FigureDB.Model.Entities.Figure", "Figure")
-                        .WithOne("FigureSeries")
-                        .HasForeignKey("FigureDB.Model.Entities.FigureSeries", "FigureId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("FigureDB.Model.Entities.Series", "Series")
-                        .WithMany("FigureSeries")
-                        .HasForeignKey("SeriesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

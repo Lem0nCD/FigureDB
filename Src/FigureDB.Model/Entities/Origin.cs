@@ -11,9 +11,13 @@ namespace FigureDB.Model.Entities
     public class Origin : BaseEntity<int>
     {
         /// <summary>
-        /// 名字
+        /// 原型作品名字
         /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// 原型作品中文名字
+        /// </summary>
+        public string CHNName { get; set; }
 
         /// <summary>
         /// 简介

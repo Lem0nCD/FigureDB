@@ -11,12 +11,12 @@ namespace FigureDB.Model.Entities
     public class Figure : BaseEntityGuid
     {
         /// <summary>
-        /// 原名
+        /// 模型信息名字
         /// </summary>
-        public string OriginalName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
-        /// 中文名
+        /// 模型信息中文名字
         /// </summary>
         public string CHNName { get; set; }
 
@@ -44,7 +44,7 @@ namespace FigureDB.Model.Entities
         /// 发行商
         /// </summary>
         public int PublishedId { get; set; }
-        public Company Publiced { get; set; }
+        public Company Published { get; set; }
 
         /// <summary>
         /// 制作商
@@ -92,8 +92,8 @@ namespace FigureDB.Model.Entities
         /// <summary>
         /// 系列外键
         /// </summary>
-        public Guid FigureSerisesId { get; set; }
-        public FigureSeries FigureSeries { get; set; }
+        public int SeriesId { get; set; }
+        public Series Series { get; set; }
 
         /// <summary>
         /// 图片外键
