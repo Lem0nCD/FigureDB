@@ -23,6 +23,12 @@ namespace FigureDB.Service
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
+        public async Task<bool> AddFigure(Figure figure)
+        {
+            await _rpository.InsertAsync(figure);
+            return await _unitOfWork.CommitAsync();
+        }
+
         public async Task<FigureDTO> GetFigure(Guid id)
         {
              var figure = await _rpository.Find()

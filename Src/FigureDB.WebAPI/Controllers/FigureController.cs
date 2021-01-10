@@ -41,8 +41,10 @@ namespace FigureDB.WebAPI.Controllers
 
         // POST api/<FigureController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<UnifyResponseDto> Post(object figure)
         {
+            _ = figure;
+            return UnifyResponseDto.Sucess();
         }
 
         // PUT api/<FigureController>/5
