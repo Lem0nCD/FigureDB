@@ -231,6 +231,34 @@ namespace FigureDB.UnitTest
             }
             context.SaveChanges();
         }
+        [TestMethod]
+        public async Task CreateFigureTag()
+        {
+            var context = new MainContext(CreateDbContextOptions(constr));
+            List<FigureTag> figureTags  = new List<FigureTag>()
+            {
+                new FigureTag()
+                {
+                    FigureId = new Guid("E743F8F1-96FE-47DD-BDE0-D61B201994BB"),
+                    TagId = 1,
+                },
+                new FigureTag()
+                {
+                    FigureId = new Guid("E743F8F1-96FE-47DD-BDE0-D61B201994BB"),
+                    TagId = 4,
+                },
+                new FigureTag()
+                {
+                    FigureId = new Guid("E743F8F1-96FE-47DD-BDE0-D61B201994BB"),
+                    TagId = 5,
+                },
+            };
+            foreach (var item in figureTags)
+            {
+                context.Add<FigureTag>(item);
+            }
+            context.SaveChanges();
+        }
         //[TestMethod]
         //public async Task QueryUser()
         //{
