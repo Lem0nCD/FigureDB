@@ -127,8 +127,8 @@ namespace FigureDB.UnitTest
             var context = new MainContext(CreateDbContextOptions(constr));
             context.Add<Character>(new Character
             {
-                Name = "葛城ミサト",
-                CHNName = "葛城美里",
+                Name = "綾波レイ",
+                CHNName = "绫波丽",
             });
             context.SaveChanges();
         }

@@ -30,6 +30,8 @@ namespace FigureDB.Service
                 .Include(x => x.Manufacturer)
                 .Include(x => x.Published)
                 .Include(x => x.Series)
+                .Include(x => x.Origin)
+                .Include(x => x.Character)
                 .FirstAsync();
             return _mapper.Map<FigureDTO>(figure);
         }

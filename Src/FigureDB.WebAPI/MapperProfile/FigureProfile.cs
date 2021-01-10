@@ -16,7 +16,8 @@ namespace FigureDB.WebAPI.MapperProfile
                 .ForMember(dest => dest.Manufacturer, opt => opt.MapFrom(src => src.Manufacturer.CHNName))
                 .ForMember(dest => dest.Origin, opt => opt.MapFrom(src => src.Origin.CHNName))
                 .ForMember(dest => dest.Published, opt => opt.MapFrom(src => src.Published.CHNName))
-                .ForMember(dest => dest.Series, opt => opt.MapFrom(src => src.Series.CHNName));
+                .ForMember(dest => dest.Series, opt => opt.MapFrom(src => src.Series.CHNName))
+                .ForMember(dest => dest.Character, opt => opt.MapFrom(src => src.Character.CHNName));
         }
     }
 }
