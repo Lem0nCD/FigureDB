@@ -86,11 +86,14 @@ namespace FigureDB.Model.DTO
         /// </summary>
         public int SeriesId { get; set; }
         public string Series { get; set; }
-
+        /// <summary>
+        /// 封面图片
+        /// </summary>
+        public Guid CoverImageId { get; set; }
         /// <summary>
         /// 图片外键
         /// </summary>
-        //public IList<FigureImage> FigureImages { get; set; }
+        public IList<Guid> FigureImages { get; set; }
 
         /// <summary>
         /// 模型-标签

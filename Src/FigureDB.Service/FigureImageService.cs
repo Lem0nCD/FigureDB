@@ -22,12 +22,12 @@ namespace FigureDB.Service
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public async Task<FigureImage> CreateFigureImage(Guid figureId)
+        public async Task<FigureImage> CreateFigureImage(FigureImage figureImage)
         {
-            var figureImage = new FigureImage()
+            if (figureImage == null || figureImage.FigureId ==Guid.Empty)
             {
-                FigureId = figureId
-            };
+                throw new ArgumentNullException(nameof(figureImage));
+            }
             await _repository.InsertAsync(figureImage);
             try
             {

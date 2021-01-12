@@ -8,6 +8,6 @@ namespace FigureDB.IService
 {
     public interface IFigureImageService
     {
-        public Task<FigureImage> CreateFigureImage(Guid figureId);
+        public Task<FigureImage> CreateFigureImage(FigureImage figureImage);
     }
 }

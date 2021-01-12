@@ -50,7 +50,10 @@ namespace FigureDB.WebAPI.Controllers
             if (file != null && file.Length > 0)
             {
                 string index = "fail";
-                FigureImage figureImage = await _service.CreateFigureImage(viewModel.id);
+                FigureImage figureImage = new FigureImage()
+                {
+                    FigureId = viewModel.id
+                };
                 switch (viewModel.imageType)
                 {
                     case "figure":
@@ -62,11 +65,16 @@ namespace FigureDB.WebAPI.Controllers
                     default:
                         break;
                 }
-                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "image", index, viewModel.id.ToString(), figureImage.Id.ToString());
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "image", index, viewModel.id.ToString());
                 long size = file.Length;
                 string[] contentTypeStrings = file.ContentType.Split('/');
                 if (contentTypeStrings.FirstOrDefault() == "image")
                 {
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    path = Path.Combine(path, figureImage.Id.ToString());
                     switch (contentTypeStrings.Last())
                     {
                         case "jpeg":
@@ -80,6 +88,7 @@ namespace FigureDB.WebAPI.Controllers
                     {
                         await file.CopyToAsync(stream);
                     }
+                    await _service.CreateFigureImage(figureImage);
                     return new UnifyResponseDto(Model.Enum.StatusCode.Sucess, new
                     {
                         size = size,

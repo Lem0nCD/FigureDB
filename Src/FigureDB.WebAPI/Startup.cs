@@ -99,7 +99,6 @@ namespace FigureDB.WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseStaticFiles();
             app.UseSwagger();
 
             app.UseSwaggerUI(setup =>
@@ -114,7 +113,16 @@ namespace FigureDB.WebAPI
                 options.WithOrigins(Configuration.GetSection("WithOrigins").Get<string[]>());
                 options.AllowAnyHeader().AllowAnyMethod();
             });
-
+            //app.UseStaticFiles(new StaticFileOptions
+            //{
+            //    //FileProvider = new PhysicalFileProvider(env.ContentRootPath + "/assets"),
+            //    OnPrepareResponse = (c) =>
+            //    {
+            //        c.Context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            //    },
+            //    RequestPath = "/services/v1/assets"
+            //});
+            app.UseStaticFiles();
             app.UseAuthentication();
 
             app.UseAuthorization();
