@@ -18,19 +18,22 @@ namespace FigureDB.WebAPI.Controllers
     public class FigureController : ControllerBase
     {
         private readonly IFigureService _service;
+        private readonly IFigureTagService _figureTagService;
         private readonly IMapper _mapper;
 
-        public FigureController(IFigureService service, IMapper mapper)
+        public FigureController(IFigureService service, IMapper mapper, IFigureTagService figureTagService)
         {
             _service = service ?? throw new ArgumentNullException(nameof(service));
+            _figureTagService = figureTagService ?? throw new ArgumentNullException(nameof(figureTagService));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         // GET: api/<FigureController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<PaginationDTO<List<FigureDTO>>> Get([FromQuery] ParametersViewModel viewModel)
         {
-            return new string[] { "value1", "value2" };
+            var figures = await _service.GetFigures(viewModel.Index, viewModel.Size);
+            return figures;
         }
 
         // GET api/<FigureController>/5
@@ -45,13 +48,16 @@ namespace FigureDB.WebAPI.Controllers
         public async Task<UnifyResponseDto> Post(CreateFigureViewModel viewmodel)
         {
             var temp = _mapper.Map<Figure>(viewmodel);
-            await _service.CreateFigure(temp);
-            return new UnifyResponseDto(
-                Model.Enum.StatusCode.Sucess,
-                new
-                {
-                    figureId = temp.Id.ToString(),
-                });
+            if (await _service.CreateFigure(temp) && await _figureTagService.CreateFigureTags(temp.Id, viewmodel.Tags))
+            {
+                return new UnifyResponseDto(
+                    Model.Enum.StatusCode.Sucess,
+                    new
+                    {
+                        figureId = temp.Id.ToString(),
+                    });
+            }
+            return UnifyResponseDto.Fail();
         }
 
         // PUT api/<FigureController>/5

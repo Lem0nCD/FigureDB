@@ -8,6 +8,10 @@ namespace FigureDB.Model.DTO
     public class FigureDTO
     {
         /// <summary>
+        /// 手办Id
+        /// </summary>
+        public Guid Id { get; set; }
+        /// <summary>
         /// 模型信息名字
         /// </summary>
         public string Name { get; set; }

@@ -4,12 +4,12 @@ namespace FigureDB.Model.DTO
 {
     public class PaginationDTO<T> where T : class
     {
-        public int Count { get; set; }
+        public int Total { get; set; }
         public T Data { get; set; }
 
-        public PaginationDTO(int count, T data)
+        public PaginationDTO(int total, T data)
         {
-            Count = count;
+            Total = total;
             Data = data ?? throw new ArgumentNullException(nameof(data));
         }
         public PaginationDTO()

@@ -19,7 +19,7 @@ namespace FigureDB.WebAPI.MapperProfile
                 .ForMember(dest => dest.Published, opt => opt.MapFrom(src => src.Published.CHNName))
                 .ForMember(dest => dest.Series, opt => opt.MapFrom(src => src.Series.CHNName))
                 .ForMember(dest => dest.Character, opt => opt.MapFrom(src => src.Character.CHNName))
-                .ForMember(dest => dest.FigureImages, opt => opt.MapFrom(src => src.FigureImages.Select(x => x.Id)));
+                .ForMember(dest => dest.FigureImages, opt => opt.MapFrom(src => src.FigureImages.OrderBy(x => x.CreateTime).Select(x => x.Id)));
             CreateMap<CreateFigureViewModel, Figure>();
         }
     }
