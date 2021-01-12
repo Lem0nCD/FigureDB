@@ -16,8 +16,6 @@ namespace FigureDB.Model.Context
             modelBuilder.Entity<Favorite>().HasOne(x => x.User).WithMany(x => x.Favorites);
 
             modelBuilder.Entity<FigureImage>().HasOne(x => x.Figure).WithMany(x => x.FigureImages);
-            modelBuilder.Entity<FigureCategory>().HasOne(x => x.Category).WithMany(x => x.FigureCategories);
-            modelBuilder.Entity<FigureCategory>().HasOne(x => x.Figure).WithMany(x => x.FigureCategories);
             modelBuilder.Entity<FigureTag>().HasOne(x => x.Figure).WithMany(x => x.FigureTags);
             modelBuilder.Entity<FigureTag>().HasOne(x => x.Tag).WithMany(x => x.FigureTags);
 
@@ -42,14 +40,12 @@ namespace FigureDB.Model.Context
 
         public DbSet<Artist> Artists { get; set; }
         public DbSet<ArtistJob> ArtistJobs { get; set; }
-        public DbSet<Category> Categories { get; set; }
         public DbSet<Character> Characters { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Favorite> Favorites { get; set; }
         public DbSet<Figure> Figures { get; set; }
         public DbSet<FigureImage> FigureImages { get; set; }
-        public DbSet<FigureCategory> FigureCategories { get; set; }
         public DbSet<FigureTag> FigureTags { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<News> News { get; set; }

@@ -101,11 +101,6 @@ namespace FigureDB.Model.Entities
         public IList<FigureImage> FigureImages { get; set; }
 
         /// <summary>
-        /// 模型-分类
-        /// </summary>
-        public IList<FigureCategory> FigureCategories { get; set; }
-
-        /// <summary>
         /// 模型-标签
         /// </summary>
         public IList<FigureTag> FigureTags { get; set; }

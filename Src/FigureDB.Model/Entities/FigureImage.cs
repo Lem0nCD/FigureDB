@@ -7,7 +7,9 @@ namespace FigureDB.Model.Entities
 {
     public class FigureImage : BaseEntityGuid
     {
-        public Guid ImageId { get; set; }
+        /// <summary>
+        /// 手办外键
+        /// </summary>
         public Figure Figure { get; set; }
         public Guid FigureId { get; set; }
     }
