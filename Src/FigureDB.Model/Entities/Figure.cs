@@ -1,6 +1,7 @@
 ﻿using FigureDB.Model.Entities.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace FigureDB.Model.Entities
@@ -39,6 +40,11 @@ namespace FigureDB.Model.Entities
         /// 发售日（出荷）
         /// </summary>
         public DateTime Release { get; set; }
+
+        /// <summary>
+        /// 封面图片
+        /// </summary>
+        public Guid? CoverImageId { get; set; }
 
         /// <summary>
         /// 发行商

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace FigureDB.Repository
 {
-    public class FigureImageRepository : GenericRepository<FigureImage, Guid> IFigureImageRepository
+    public class FigureImageRepository : GenericRepository<FigureImage, Guid>, IFigureImageRepository
     {
         public FigureImageRepository(MainContext context) : base(context)
         {
