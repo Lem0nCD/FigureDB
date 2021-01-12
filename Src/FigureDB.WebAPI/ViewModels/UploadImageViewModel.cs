@@ -11,7 +11,7 @@ namespace FigureDB.WebAPI.ViewModels
         [FromForm]
         public IFormFile file { get; set; }
         [FromForm]
-        public string id { get; set; }        
+        public Guid id { get; set; }        
         [FromForm]
         public string imageType { get; set; }
     }

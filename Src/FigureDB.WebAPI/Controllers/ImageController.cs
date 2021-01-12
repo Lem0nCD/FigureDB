@@ -1,4 +1,7 @@
-﻿using FigureDB.Model.DTO;
+﻿using AutoMapper;
+using FigureDB.IService;
+using FigureDB.Model.DTO;
+using FigureDB.Model.Entities;
 using FigureDB.WebAPI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -15,6 +18,14 @@ namespace FigureDB.WebAPI.Controllers
     [ApiController]
     public class ImageController : ControllerBase
     {
+        private readonly IFigureImageService _service;
+        private readonly IMapper _mapper;
+
+        public ImageController(IFigureImageService service, IMapper mapper)
+        {
+            _service = service ?? throw new ArgumentNullException(nameof(service));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        }
         // GET: api/<ImageController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -39,7 +50,7 @@ namespace FigureDB.WebAPI.Controllers
             if (file != null && file.Length > 0)
             {
                 string index = "fail";
-                string imageId = Guid.NewGuid().ToString();
+                FigureImage figureImage = await _service.CreateFigureImage(viewModel.id);
                 switch (viewModel.imageType)
                 {
                     case "figure":
@@ -51,7 +62,7 @@ namespace FigureDB.WebAPI.Controllers
                     default:
                         break;
                 }
-                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "image", index, viewModel.id, imageId);
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "image", index, viewModel.id.ToString(), figureImage.Id.ToString());
                 long size = file.Length;
                 string[] contentTypeStrings = file.ContentType.Split('/');
                 if (contentTypeStrings.FirstOrDefault() == "image")
@@ -73,7 +84,7 @@ namespace FigureDB.WebAPI.Controllers
                     {
                         size = size,
                         id = viewModel.id,
-                        imageId = imageId,
+                        imageId = figureImage.Id.ToString(),
                     });
                 }
             }
