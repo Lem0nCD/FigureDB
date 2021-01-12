@@ -23,7 +23,7 @@ namespace FigureDB.Service
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public async Task<bool> AddFigure(Figure figure)
+        public async Task<bool> CreateFigure(Figure figure)
         {
             await _rpository.InsertAsync(figure);
             return await _unitOfWork.CommitAsync();

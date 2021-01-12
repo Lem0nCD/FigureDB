@@ -2,6 +2,7 @@
 using FigureDB.IService;
 using FigureDB.Model.DTO;
 using FigureDB.Model.Entities;
+using FigureDB.WebAPI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -36,15 +37,21 @@ namespace FigureDB.WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<FigureDTO> Get(Guid id)
         {
-           return await _service.GetFigure(id);
+            return await _service.GetFigure(id);
         }
 
         // POST api/<FigureController>
         [HttpPost]
-        public async Task<UnifyResponseDto> Post(object figure)
+        public async Task<UnifyResponseDto> Post(CreateFigureViewModel viewmodel)
         {
-            _ = figure;
-            return UnifyResponseDto.Sucess();
+            var temp = _mapper.Map<Figure>(viewmodel);
+            await _service.CreateFigure(temp);
+            return new UnifyResponseDto(
+                Model.Enum.StatusCode.Sucess,
+                new
+                {
+                    figureId = temp.Id.ToString(),
+                });
         }
 
         // PUT api/<FigureController>/5

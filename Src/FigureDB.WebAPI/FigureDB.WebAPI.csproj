@@ -11,6 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\image\**" />
+    <Content Remove="wwwroot\image\**" />
+    <EmbeddedResource Remove="wwwroot\image\**" />
+    <None Remove="wwwroot\image\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Autofac.Extras.DynamicProxy" Version="5.0.0" />
     <PackageReference Include="AutoMapper" Version="10.1.1" />
@@ -36,8 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\image\avatar\" />
-    <Folder Include="wwwroot\image\figure\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 
