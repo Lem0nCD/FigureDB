@@ -9,7 +9,7 @@ namespace FigureDB.IService
     public interface IFigureService
     {
         public Task<FigureDTO> GetFigure(Guid id);
-        public Task<PaginationDTO<List<FigureDTO>>> GetFigures(int index,int size);
+        public Task<PaginationDTO<FigureDTO>> GetFigures(int index,int size);
         public Task<bool> CreateFigure(Figure figure);
     }
 }

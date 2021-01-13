@@ -10,6 +10,13 @@ namespace FigureDB.Model.Entities
     /// </summary>
     public class News : BaseEntityGuid
     {
+        /// <summary>
+        /// 标题
+        /// </summary>
+        public string Title { get; set; }
+        /// <summary>
+        /// 内容
+        /// </summary>
         public string Content { get; set; }
         /// <summary>
         /// 模型外键
@@ -19,8 +26,8 @@ namespace FigureDB.Model.Entities
         /// <summary>
         /// 用户外键
         /// </summary>
-        public Guid UserId { get; set; }
-        public User User { get; set; }
+        //public Guid UserId { get; set; }
+        //public User User { get; set; }
 
     }
 }

@@ -56,7 +56,7 @@ namespace FigureDB.Model.Entities
         /// <summary>
         /// 新闻
         /// </summary>
-        public IList<News> News { get; set; }
+        //public IList<News> News { get; set; }
 
 
     }

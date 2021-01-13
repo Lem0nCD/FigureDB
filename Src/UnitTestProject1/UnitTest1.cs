@@ -259,6 +259,20 @@ namespace FigureDB.UnitTest
             }
             context.SaveChanges();
         }
+        [TestMethod]
+        public async Task CreateNews()
+        {
+            var context = new MainContext(CreateDbContextOptions(constr));
+            context.Add<News>(new News()
+            {
+                Content = "EVA系列 迷你陈列品手办～Q～feat.三月八日Vol.3 新世纪EVA 绫波丽",
+                Title = "条目创建",
+                FigureId = Guid.Parse("d5638ee0-0e9f-4912-a1de-cf26ba3033a0")
+            });
+            context.SaveChanges();
+
+
+        }
         //[TestMethod]
         //public async Task QueryUser()
         //{

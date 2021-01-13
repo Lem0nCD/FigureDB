@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using FigureDB.IService;
-using FigureDB.Model.Entities;
 using FigureDB.Model.DTO;
+using FigureDB.Model.Entities;
+using FigureDB.WebAPI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,46 +15,48 @@ namespace FigureDB.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class NewsController : ControllerBase
     {
-        private readonly IUserService _service;
         private readonly IMapper _mapper;
+        private readonly INewsService _service;
 
-        public UserController(IUserService service, IMapper mapper)
+        public NewsController(IMapper mapper, INewsService service)
         {
-            _service = service ?? throw new ArgumentNullException();
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-
+            _service = service ?? throw new ArgumentNullException(nameof(service));
         }
-        // GET: api/<UserController>
+
+        // GET: api/<NewsController>
         [HttpGet]
-        public async Task<PaginationDTO<User>> Get()
+        public async Task<PaginationDTO<News>> Get([FromQuery] ParametersViewModel viewmodel)
         {
-            List<User> users = await _service.GetUserAsync();
-            PaginationDTO<User> result = new PaginationDTO<User>(users.Count, users);
-            return result;
+            var news = await _service.GetNews(viewmodel.Index, viewmodel.Size);
+            return news;
         }
 
-        // GET api/<UserController>/5
+        // GET api/<NewsController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/<UserController>
+        // POST api/<NewsController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<News> Post(News news)
         {
+
+            //await _service.CreateNews(news);
+            return news;
         }
 
-        // PUT api/<UserController>/5
+        // PUT api/<NewsController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<UserController>/5
+        // DELETE api/<NewsController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

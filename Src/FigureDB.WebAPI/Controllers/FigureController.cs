@@ -19,18 +19,20 @@ namespace FigureDB.WebAPI.Controllers
     {
         private readonly IFigureService _service;
         private readonly IFigureTagService _figureTagService;
+        private readonly INewsService _newsService;
         private readonly IMapper _mapper;
 
-        public FigureController(IFigureService service, IMapper mapper, IFigureTagService figureTagService)
+        public FigureController(IFigureService service, IMapper mapper, IFigureTagService figureTagService, INewsService newsService)
         {
             _service = service ?? throw new ArgumentNullException(nameof(service));
             _figureTagService = figureTagService ?? throw new ArgumentNullException(nameof(figureTagService));
+            _newsService = newsService ?? throw new ArgumentNullException(nameof(newsService));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         // GET: api/<FigureController>
         [HttpGet]
-        public async Task<PaginationDTO<List<FigureDTO>>> Get([FromQuery] ParametersViewModel viewModel)
+        public async Task<PaginationDTO<FigureDTO>> Get([FromQuery] ParametersViewModel viewModel)
         {
             var figures = await _service.GetFigures(viewModel.Index, viewModel.Size);
             return figures;
@@ -47,15 +49,22 @@ namespace FigureDB.WebAPI.Controllers
         [HttpPost]
         public async Task<UnifyResponseDto> Post(CreateFigureViewModel viewmodel)
         {
-            var temp = _mapper.Map<Figure>(viewmodel);
-            if (await _service.CreateFigure(temp) && await _figureTagService.CreateFigureTags(temp.Id, viewmodel.Tags))
+            var figure = _mapper.Map<Figure>(viewmodel);
+            var news = new News
             {
+                Content = figure.CHNName,
+                Title = "条目创建",
+                FigureId = figure.Id
+            };
+            if (await _service.CreateFigure(figure)
+                && await _figureTagService.CreateFigureTags(figure.Id, viewmodel.Tags)
+                && await _newsService.CreateNews(news))
+            {
+                var figureDTO = _mapper.Map<FigureDTO>(figure);
                 return new UnifyResponseDto(
                     Model.Enum.StatusCode.Sucess,
-                    new
-                    {
-                        figureId = temp.Id.ToString(),
-                    });
+                    figureDTO
+                    );
             }
             return UnifyResponseDto.Fail();
         }

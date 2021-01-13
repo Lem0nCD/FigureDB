@@ -26,7 +26,7 @@ namespace FigureDB.Model.Context
             modelBuilder.Entity<Figure>().HasOne(x => x.Series).WithMany(x => x.Figures).OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<News>().HasOne(x => x.Figure).WithMany(x => x.News);
-            modelBuilder.Entity<News>().HasOne(x => x.User).WithMany(x => x.News);
+            //modelBuilder.Entity<News>().HasOne(x => x.User).WithMany(x => x.News);
             modelBuilder.Entity<Offer>().HasOne(x => x.Figure).WithMany(x => x.Offers);
             modelBuilder.Entity<Offer>().HasOne(x => x.Shop).WithMany(x => x.Offers);
             modelBuilder.Entity<UserIdentity>().HasOne(x => x.User).WithMany(x => x.UserIdentitys);

@@ -44,7 +44,7 @@ namespace FigureDB.Service
             return _mapper.Map<FigureDTO>(figure);
         }
 
-        public async Task<PaginationDTO<List<FigureDTO>>> GetFigures(int index, int size)
+        public async Task<PaginationDTO<FigureDTO>> GetFigures(int index, int size)
         {
             var figures = await _rpository.Find()
                 .Skip(index * size)
@@ -56,7 +56,7 @@ namespace FigureDB.Service
                 .Include(x => x.Character)
                 .Include(x => x.FigureImages)
                 .ToListAsync();
-            return new PaginationDTO<List<FigureDTO>>(await _rpository.Find().CountAsync(), _mapper.Map<List<FigureDTO>>(figures));
+            return new PaginationDTO<FigureDTO>(await _rpository.Find().CountAsync(), _mapper.Map<List<FigureDTO>>(figures));
         }
     }
 }
