@@ -10,7 +10,7 @@ namespace FigureDB.IService
     public interface INewsService
     {
         public Task<bool> CreateNews(News news);
-        public Task<PaginationDTO<News>> GetNews(int index, int size);
+        public Task<PaginationDTO<NewsDTO>> GetNews(int index, int size);
         public Task<List<News>> GetNewsByFigureId();
     }
 }

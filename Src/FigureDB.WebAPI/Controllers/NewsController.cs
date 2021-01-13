@@ -28,7 +28,7 @@ namespace FigureDB.WebAPI.Controllers
 
         // GET: api/<NewsController>
         [HttpGet]
-        public async Task<PaginationDTO<News>> Get([FromQuery] ParametersViewModel viewmodel)
+        public async Task<PaginationDTO<NewsDTO>> Get([FromQuery] ParametersViewModel viewmodel)
         {
             var news = await _service.GetNews(viewmodel.Index, viewmodel.Size);
             return news;

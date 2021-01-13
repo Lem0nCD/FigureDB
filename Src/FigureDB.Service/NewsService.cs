@@ -31,21 +31,22 @@ namespace FigureDB.Service
             return await _unitOfWork.CommitAsync();
         }
 
-        public async Task<PaginationDTO<News>> GetNews(int index, int size)
+        public async Task<PaginationDTO<NewsDTO>> GetNews(int index, int size)
         {
             var news = await _repository.Find()
                 .Where(_ => true)
                 .Skip(index * size)
                 .Take(size)
                 .OrderByDescending(n => n.CreateTime)
+                .Include(n => n.Figure)
                 .ToListAsync();
             int total = await _repository.Find()
                 .Where(_ => true)
                 .CountAsync();
-
-            return new PaginationDTO<News>()
+            var newsDTOs = _mapper.Map<List<NewsDTO>>(news);
+            return new PaginationDTO<NewsDTO>()
             {
-                Data = news,
+                Data = newsDTOs,
                 Total = total
             };
         }
