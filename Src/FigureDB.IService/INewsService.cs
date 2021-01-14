@@ -11,6 +11,6 @@ namespace FigureDB.IService
     {
         public Task<bool> CreateNews(News news);
         public Task<PaginationDTO<NewsDTO>> GetNews(int index, int size);
-        public Task<List<News>> GetNewsByFigureId();
+        public Task<List<News>> GetNewsByFigureId(Guid figureId);
     }
 }

@@ -51,9 +51,13 @@ namespace FigureDB.Service
             };
         }
 
-        public async Task<List<News>> GetNewsByFigureId()
+        public async Task<List<News>> GetNewsByFigureId(Guid figureId)
         {
-            throw new NotImplementedException();
+            return await _repository.Find()
+                .Where(n => n.FigureId == figureId)
+                .OrderBy(n => n.CreateTime)
+                .Include(n => n.Figure)
+                .ToListAsync();
         }
     }
 }

@@ -36,9 +36,9 @@ namespace FigureDB.WebAPI.Controllers
 
         // GET api/<NewsController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<List<News>> Get(Guid id)
         {
-            return "value";
+            return await _service.GetNewsByFigureId(id);
         }
 
         // POST api/<NewsController>
