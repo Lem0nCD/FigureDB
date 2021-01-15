@@ -2,6 +2,7 @@
 using FigureDB.Model.Context;
 using FigureDB.Model.Entities;
 using System;
+using System.Threading.Tasks;
 
 namespace FigureDB.Repository
 {

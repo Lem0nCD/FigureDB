@@ -1,5 +1,6 @@
 ﻿using FigureDB.Model.Entities;
 using System;
+using System.Threading.Tasks;
 
 namespace FigureDB.IRepository
 {

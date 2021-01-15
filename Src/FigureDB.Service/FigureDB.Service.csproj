@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FigureDB.Common\FigureDB.Common.csproj" />
     <ProjectReference Include="..\FigureDB.IService\FigureDB.IService.csproj" />
     <ProjectReference Include="..\FigureDB.Model\FigureDB.Model.csproj" />
     <ProjectReference Include="..\FigureDB.Repository\FigureDB.Repository.csproj" />

@@ -9,9 +9,8 @@ namespace FigureDB.IService
     public interface IUserService
     {
         public Task<User> GetUserAsync(Guid id);
-        public Task<User> GetUserAsync(string emali);
-        public Task<Guid> GetUserIdAsync(string emali);
-        public Task<List<User>> GetUserAsync();
+        public Task<User> GetUserAsync(string nickName);
+        public Task<List<User>> GetUsersAsync();
         public Task<bool> CreateUserAsync();
     }
 }

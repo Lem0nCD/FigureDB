@@ -1,3 +1,4 @@
+using FigureDB.Common;
 using FigureDB.Model.Context;
 using FigureDB.Model.Entities;
 using FigureDB.Repository;
@@ -62,7 +63,7 @@ namespace FigureDB.UnitTest
                 {
                     Color = "#ED6FAC",
                     Name = "»À–Œ"
-                },                
+                },
                 new Tag()
                 {
                     Color = "#ED6FAC",
@@ -235,7 +236,7 @@ namespace FigureDB.UnitTest
         public async Task CreateFigureTag()
         {
             var context = new MainContext(CreateDbContextOptions(constr));
-            List<FigureTag> figureTags  = new List<FigureTag>()
+            List<FigureTag> figureTags = new List<FigureTag>()
             {
                 new FigureTag()
                 {
@@ -270,6 +271,23 @@ namespace FigureDB.UnitTest
                 FigureId = Guid.Parse("d5638ee0-0e9f-4912-a1de-cf26ba3033a0")
             });
             context.SaveChanges();
+
+
+        }
+        [TestMethod]
+        public async Task CreateUser()
+        {
+            var context = new MainContext(CreateDbContextOptions(constr));
+            var user = new User()
+            {
+                Email = "alice@emali.com",
+                Nickname = "alice",
+            };
+            var userIdentitys = new UserIdentity(Model.Entity.IdentityType.Password, EncryptUtil.Encrypt("alice"), user.Id);
+            context.Add<User>(user);
+            context.Add<UserIdentity>(userIdentitys);
+
+            await context.SaveChangesAsync();
 
 
         }

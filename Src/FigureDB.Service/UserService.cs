@@ -59,19 +59,16 @@ namespace FigureDB.Service
            return await _repository.FindAsync(id);
         }
 
-        public Task<User> GetUserAsync(string email)
-        {
-            throw new NotImplementedException();
-        }
 
-        public async Task<List<User>> GetUserAsync()
+        public async Task<List<User>> GetUsersAsync()
         {
             return await _repository.Find().ToListAsync();
         }
 
-        public Task<Guid> GetUserIdAsync(string eamil)
+        public Task<User> GetUserAsync(string nickName)
         {
-            throw new NotImplementedException();
+            return _repository.Find().Where(u => u.Nickname == nickName)
+                .FirstOrDefaultAsync();
         }
     }
 }

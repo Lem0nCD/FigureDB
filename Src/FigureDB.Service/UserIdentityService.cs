@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FigureDB.Common;
 using FigureDB.IRepository;
 using FigureDB.IService;
 using FigureDB.Model.Entities;
@@ -43,7 +44,7 @@ namespace FigureDB.Service
 
             foreach (var ui in userIdentitys)
             {
-                if (ui.IdentityType == Model.Entity.IdentityType.Password && ui.Credential == credential)
+                if (ui.IdentityType == Model.Entity.IdentityType.Password && ui.Credential == EncryptUtil.Encrypt(credential))
                 {
                     return true;
                 }

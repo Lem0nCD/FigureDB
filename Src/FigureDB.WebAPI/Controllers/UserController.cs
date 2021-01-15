@@ -30,7 +30,7 @@ namespace FigureDB.WebAPI.Controllers
         [HttpGet]
         public async Task<PaginationDTO<User>> Get()
         {
-            List<User> users = await _service.GetUserAsync();
+            List<User> users = await _service.GetUsersAsync();
             PaginationDTO<User> result = new PaginationDTO<User>(users.Count, users);
             return result;
         }
