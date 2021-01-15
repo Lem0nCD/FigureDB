@@ -17,9 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureDB.WebAPI", "FigureDB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureDB.Model", "FigureDB.Model\FigureDB.Model.csproj", "{FD4DE3E7-CCB3-43D6-AE97-018228F0C22A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureDB.UnitTest", "UnitTestProject1\FigureDB.UnitTest.csproj", "{C2866BB2-5B55-4435-BB53-2AD07A9B9ADB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureDB.UnitTest", "UnitTestProject1\FigureDB.UnitTest.csproj", "{C2866BB2-5B55-4435-BB53-2AD07A9B9ADB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureDB.IdentityServer", "FigureDB.IdentityServer\FigureDB.IdentityServer.csproj", "{E0CFADC6-0A63-49DF-8BE9-88F0B515C385}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureDB.IdentityServer", "FigureDB.IdentityServer\FigureDB.IdentityServer.csproj", "{E0CFADC6-0A63-49DF-8BE9-88F0B515C385}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

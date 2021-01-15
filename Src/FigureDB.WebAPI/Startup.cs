@@ -3,7 +3,6 @@ using AutoMapper;
 using FigureDB.IService;
 using FigureDB.Model.DTO;
 using FigureDB.Model.Enum;
-using FigureDB.Service;
 using FigureDB.WebAPI.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -78,7 +77,6 @@ namespace FigureDB.WebAPI
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
             Assembly assemblysRepository = Assembly.Load("FigureDB.Repository");
             Assembly assemblysService = Assembly.Load("FigureDB.Service");
 
