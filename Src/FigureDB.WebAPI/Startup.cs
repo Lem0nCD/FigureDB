@@ -1,9 +1,8 @@
 using Autofac;
 using AutoMapper;
-using FigureDB.IService;
+using FigureDB.Common.Extensions;
 using FigureDB.Model.DTO;
 using FigureDB.Model.Enum;
-using FigureDB.WebAPI.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -30,10 +29,6 @@ namespace FigureDB.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDBContext(Configuration);
-            //services.AddDbContext<MainContext>(options =>
-            //{
-            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            //});
             services.AddControllers(setup =>
             {
                 setup.ReturnHttpNotAcceptable = true;

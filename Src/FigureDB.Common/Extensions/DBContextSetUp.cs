@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FigureDB.WebAPI.Extensions
+namespace FigureDB.Common.Extensions
 {
     public static class DBContextSetUp
     {
