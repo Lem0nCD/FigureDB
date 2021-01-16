@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using AutoMapper;
 using FigureDB.Common.Extensions;
+using FigureDB.IdentityServer.Configure;
 using FigureDB.IRepository;
 using FigureDB.IService;
 using FigureDB.Repository;
@@ -39,8 +40,10 @@ namespace FigureDB.IdentityServer
 
                 // see https://identityserver4.readthedocs.io/en/latest/topics/resources.html
                 options.EmitStaticAudienceClaim = true;
-            })
-                .AddTestUsers(TestUsers.Users);
+            });
+            //.AddTestUsers(TestUsers.Users);
+            builder.AddProfileService<FigureDBProfileService>();
+            builder.AddResourceOwnerValidator<FigureDBResourceOwnerPasswordValidator>();
 
             // in-memory, code config
             builder.AddInMemoryIdentityResources(Config.IdentityResources);

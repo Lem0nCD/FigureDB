@@ -13,10 +13,8 @@ namespace FigureDB.IdentityServer
         public static IEnumerable<IdentityResource> IdentityResources =>
             new IdentityResource[]
             {
-                new IdentityResources.Address(),
                 new IdentityResources.Email(),
                 new IdentityResources.OpenId(),
-                new IdentityResources.Phone(),
                 new IdentityResources.Profile(),
             };
 
@@ -89,8 +87,6 @@ namespace FigureDB.IdentityServer
                         "api1",
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Email,
-                        IdentityServerConstants.StandardScopes.Address,
-                        IdentityServerConstants.StandardScopes.Phone,
                         IdentityServerConstants.StandardScopes.Profile
                     }
                 }

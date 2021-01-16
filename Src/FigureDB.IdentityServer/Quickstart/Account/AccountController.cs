@@ -43,20 +43,20 @@ namespace IdentityServerHost.Quickstart.UI
             IClientStore clientStore,
             IAuthenticationSchemeProvider schemeProvider,
             IEventService events,
-            IUserIdentityService service,
-            IUserService identityService,
+            IUserIdentityService identityService,
+            IUserService userSerivce,
             TestUserStore users = null)
         {
             // if the TestUserStore is not in DI, then we'll just use the global users collection
             // this is where you would plug in your own custom identity management library (e.g. ASP.NET Identity)
-            _users = users ?? new TestUserStore(TestUsers.Users);
+            //_users = users ?? new TestUserStore(TestUsers.Users);
 
             _interaction = interaction;
             _clientStore = clientStore;
             _schemeProvider = schemeProvider;
             _events = events;
-            _identityService = service ?? throw new ArgumentNullException(nameof(service));
-            _userService = identityService ?? throw new ArgumentNullException(nameof(identityService));
+            _identityService = identityService ?? throw new ArgumentNullException(nameof(identityService));
+            _userService = userSerivce ?? throw new ArgumentNullException(nameof(userSerivce));
         }
 
         /// <summary>
@@ -117,10 +117,10 @@ namespace IdentityServerHost.Quickstart.UI
             if (ModelState.IsValid)
             {
                 // validate username/password against in-memory store
-                if (_users.ValidateCredentials(model.Username, model.Password))
+                if (await _identityService.VerifyPasswordAsync(model.Username, model.Password))
                 {
-                    var user = _users.FindByUsername(model.Username);
-                    await _events.RaiseAsync(new UserLoginSuccessEvent(user.Username, user.SubjectId, user.Username, clientId: context?.Client.ClientId));
+                    var user = await _userService.GetUserAsync(model.Username);
+                    await _events.RaiseAsync(new UserLoginSuccessEvent(user.Nickname, user.Id.ToString(), user.Nickname, clientId: context?.Client.ClientId));
 
                     // only set explicit expiration here if user chooses "remember me". 
                     // otherwise we rely upon expiration configured in cookie middleware.
@@ -135,9 +135,9 @@ namespace IdentityServerHost.Quickstart.UI
                     };
 
                     // issue authentication cookie with subject ID and username
-                    var isuser = new IdentityServerUser(user.SubjectId)
+                    var isuser = new IdentityServerUser(user.Id.ToString())
                     {
-                        DisplayName = user.Username
+                        DisplayName = user.Nickname
                     };
 
                     await HttpContext.SignInAsync(isuser, props);

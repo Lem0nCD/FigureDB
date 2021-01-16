@@ -9,6 +9,5 @@ namespace FigureDB.IService
     {
         public Task<bool> VerifyPasswordAsync(Guid userId, string credential);
         public Task<bool> VerifyPasswordAsync(string userName, string credential);
-        //public Task<bool> CreateUserIdentity(Guid userId,string password);
     }
 }
