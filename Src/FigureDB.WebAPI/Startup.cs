@@ -13,6 +13,8 @@ using Newtonsoft.Json.Serialization;
 using System;
 using System.IO;
 using System.Reflection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Logging;
 
 namespace FigureDB.WebAPI
 {
@@ -57,7 +59,14 @@ namespace FigureDB.WebAPI
                 });
 
             services.AddMvc();
-
+            services.AddAuthorization();
+            services.AddAuthentication("Bearer").AddJwtBearer(options =>
+            {
+                options.Authority = "https://localhost:5001";
+                options.RequireHttpsMetadata = false;
+                options.Audience = "https://localhost:5001/resources";
+                IdentityModelEventSource.ShowPII = true;
+            });
             services.AddSwaggerGen(setup =>
             {
                 setup.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "FigureDB API", Version = "V1" });
@@ -106,20 +115,9 @@ namespace FigureDB.WebAPI
                 options.WithOrigins(Configuration.GetSection("WithOrigins").Get<string[]>());
                 options.AllowAnyHeader().AllowAnyMethod();
             });
-            //app.UseStaticFiles(new StaticFileOptions
-            //{
-            //    //FileProvider = new PhysicalFileProvider(env.ContentRootPath + "/assets"),
-            //    OnPrepareResponse = (c) =>
-            //    {
-            //        c.Context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            //    },
-            //    RequestPath = "/services/v1/assets"
-            //});
             app.UseStaticFiles();
             app.UseAuthentication();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

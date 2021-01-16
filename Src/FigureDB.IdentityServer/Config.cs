@@ -21,8 +21,7 @@ namespace FigureDB.IdentityServer
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
-                new ApiScope("scope1"),
-                new ApiScope("scope2"),
+                new ApiScope("figuredbapi")
             };
 
         public static IEnumerable<Client> Clients =>
@@ -61,7 +60,8 @@ namespace FigureDB.IdentityServer
                     ClientId = "angular-client",
                     ClientName =  "Angular SPA 客户端",
                     ClientUri = "http://localhost:4200",
-                    
+                    AlwaysIncludeUserClaimsInIdToken = true,
+
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
                     RequireConsent = true,
@@ -84,7 +84,7 @@ namespace FigureDB.IdentityServer
                     },
 
                     AllowedScopes = {
-                        "api1",
+                        "figuredbapi",
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.Profile

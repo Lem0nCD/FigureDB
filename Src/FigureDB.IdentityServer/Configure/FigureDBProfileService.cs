@@ -4,6 +4,7 @@ using IdentityModel;
 using IdentityServer4.Extensions;
 using IdentityServer4.Models;
 using IdentityServer4.Services;
+using Microsoft.IdentityModel.JsonWebTokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,13 +32,13 @@ namespace FigureDB.IdentityServer.Configure
             {
                 List<Claim> claims = new List<Claim>()
                 {
-                    new Claim(JwtClaimTypes.Id, user.Id.ToString()),
-                    new Claim(JwtClaimTypes.Email, user.Email ?? string.Empty),
-                    new Claim(JwtClaimTypes.NickName, user.Nickname ?? string.Empty),
-                    new Claim(JwtClaimTypes.Picture, user.Avatar ?? string.Empty),
+
+                    new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Email, user.Email ?? string.Empty),
+                    new Claim(JwtRegisteredClaimNames.GivenName, user.Nickname ?? string.Empty),
                 };
 
-                context.IssuedClaims = claims;
+                context.AddRequestedClaims(claims);
             }
         }
 
