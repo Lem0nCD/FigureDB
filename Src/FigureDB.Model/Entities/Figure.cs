@@ -24,12 +24,12 @@ namespace FigureDB.Model.Entities
         /// <summary>
         /// 比例
         /// </summary>
-        public float Scale { get; set; }
+        public float? Scale { get; set; }
 
         /// <summary>
         /// 尺寸
         /// </summary>
-        public float Dimensions { get; set; }
+        public float? Dimensions { get; set; }
 
         /// <summary>
         /// 材质
@@ -39,7 +39,7 @@ namespace FigureDB.Model.Entities
         /// <summary>
         /// 发售日（出荷）
         /// </summary>
-        public DateTime Release { get; set; }
+        public DateTime? Release { get; set; }
 
         /// <summary>
         /// 封面图片
@@ -104,7 +104,8 @@ namespace FigureDB.Model.Entities
         /// <summary>
         /// 图片外键
         /// </summary>
-        public IList<FigureImage> FigureImages { get; set; }
+        public Guid FigureImageId { get; set; }
+        public FigureImage FigureImage { get; set; }
 
         /// <summary>
         /// 模型-标签
@@ -115,5 +116,13 @@ namespace FigureDB.Model.Entities
         /// 制作人
         /// </summary>
         public IList<ArtistJob> ArtistJobs { get; set; }
+
+        /// <summary>
+        /// 手办类别
+        /// </summary>
+        public int FigureTypeId { get; set; }
+        public FigureType FigureType { get; set; }
+
+        public IList<Recommand> Recommands { get; set; }
     }
 }

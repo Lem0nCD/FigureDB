@@ -25,6 +25,11 @@ namespace FigureDB.Model.Entities
         public string About { get; set; }
 
         /// <summary>
+        /// 角色头像
+        /// </summary>
+        public Guid? Avatar { get; set; }
+
+        /// <summary>
         /// 模型
         /// </summary>
         public IList<Figure> Figures { get; set; }

@@ -23,6 +23,10 @@ namespace FigureDB.Model.Entities
         /// 简介
         /// </summary>
         public string About { get; set; }
+        /// <summary>
+        /// 封面图片
+        /// </summary>
+        public Guid? CoverImage { get; set; }
 
         /// <summary>
         /// 模型

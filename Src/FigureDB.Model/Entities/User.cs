@@ -31,11 +31,11 @@ namespace FigureDB.Model.Entities
         /// 用户身份
         /// </summary>
         public virtual IList<UserIdentity> UserIdentitys { get; set; }
-        /// <summary>
-        /// 用户角色
-        /// </summary>
-        public Guid UserRoleId { get; set; }
-        public UserRole UserRole { get; set; }
+        ///// <summary>
+        ///// 用户角色
+        ///// </summary>
+        //public Guid UserRoleId { get; set; }
+        //public UserRole UserRole { get; set; }
 
         /// <summary>
         /// 商店

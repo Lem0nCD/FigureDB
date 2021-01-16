@@ -21,9 +21,9 @@ namespace FigureDB.Model.Entities
         public string CHNName { get; set; }
 
         /// <summary>
-        /// 头像路径
+        /// 头像
         /// </summary>
-        public string Avator { get; set; }
+        public Guid? Avator { get; set; }
 
         /// <summary>
         /// 简介

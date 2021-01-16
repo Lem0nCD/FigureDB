@@ -39,7 +39,7 @@ namespace FigureDB.Service
                .Include(x => x.Series)
                .Include(x => x.Origin)
                .Include(x => x.Character)
-               .Include(x => x.FigureImages)
+               .Include(x => x.FigureImage)
                .FirstAsync();
             return _mapper.Map<FigureDTO>(figure);
         }
@@ -54,7 +54,7 @@ namespace FigureDB.Service
                 .Include(x => x.Series)
                 .Include(x => x.Origin)
                 .Include(x => x.Character)
-                .Include(x => x.FigureImages)
+                .Include(x => x.FigureImage)
                 .ToListAsync();
             return new PaginationDTO<FigureDTO>(await _rpository.Find().CountAsync(), _mapper.Map<List<FigureDTO>>(figures));
         }

@@ -21,9 +21,9 @@ namespace FigureDB.Model.Entities
         public string CHNName { get; set; }
 
         /// <summary>
-        /// 图标路径
+        /// 图标
         /// </summary>
-        public string Icon { get; set; }
+        public Guid? Icon { get; set; }
 
         /// <summary>
         /// 主页地址

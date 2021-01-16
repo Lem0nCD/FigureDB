@@ -5,14 +5,14 @@ using System.Text;
 
 namespace FigureDB.Model.Entities
 {
-    public class FigureImage : BaseEntityGuid
+    public class FigureType : BaseEntity<int>
     {
         /// <summary>
-        /// 手办外键
+        /// 类别名
         /// </summary>
-        public Figure Figure { get; set; }
+        public string Name { get; set; }
+
         public Guid FigureId { get; set; }
-        public Guid ImageId { get; set; }
-        public Image Image { get; set; }
+        public Figure Figure { get; set; }
     }
 }
