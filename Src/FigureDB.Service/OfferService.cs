@@ -40,6 +40,7 @@ namespace FigureDB.Service
             return await _repository
                 .Find()
                 .Where(o => o.FigureId == figureId)
+                .Include(o => o.Shop)
                 .ToListAsync();
         }
     }

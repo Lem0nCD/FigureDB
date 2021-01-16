@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -17,55 +16,56 @@ using System.Threading.Tasks;
 namespace FigureDB.WebAPI.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
     [ApiController]
-    public class ShopController : ControllerBase
+    [Authorize]
+    public class OfferController : ControllerBase
     {
-        private readonly IShopService _service;
+        private readonly IOfferService _service;
+        private readonly IShopService _shopService;
         private readonly IMapper _mapper;
 
-        public ShopController(IShopService service, IMapper mapper)
+        public OfferController(IOfferService service, IShopService shopService, IMapper mapper)
         {
             _service = service ?? throw new ArgumentNullException(nameof(service));
+            _shopService = shopService ?? throw new ArgumentNullException(nameof(shopService));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        // GET: api/<ShopController>
+        // GET: api/<OfferController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<List<OfferDTO>> Get(Guid figureId)
         {
-            return new string[] { "value1", "value2" };
+            var offers = await _service.GetOfferByFigureId(figureId);
+            return _mapper.Map<List<OfferDTO>>(offers);
         }
 
-        // GET api/<ShopController>/5
+        // GET api/<OfferController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/<ShopController>
+        // POST api/<OfferController>
         [HttpPost]
-        public async Task<UnifyResponseDto> Post(ShopViewModel shopDTO)
+        public async Task<UnifyResponseDto> Post(OfferViewModel viewModel)
         {
-            var claims = User.Claims.ToList();
             Guid userId = Guid.Parse(User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value);
-            Shop shop = new Shop()
+            var shop = await _shopService.GetShopByUserId(userId);
+            if (await _service.CreateOffer(viewModel.FigureId, shop.Id, viewModel.Price))
             {
-                Homepage = shopDTO.Homepage,
-                Name = shopDTO.Name,
-            };
-            await _service.CreateShop(userId, shop);
-            return UnifyResponseDto.Sucess();
+                return UnifyResponseDto.Sucess();
+            }
+            return UnifyResponseDto.Fail();
         }
 
-        // PUT api/<ShopController>/5
+        // PUT api/<OfferController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<ShopController>/5
+        // DELETE api/<OfferController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

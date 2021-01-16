@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FigureDB.Model.DTO
+namespace FigureDB.WebAPI.ViewModels
 {
-    public class ShopDTO
+    public class ShopViewModel
     {
         /// <summary>
         /// 商店名字
