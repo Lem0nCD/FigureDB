@@ -37,9 +37,9 @@ namespace FigureDB.WebAPI.Controllers
 
         // GET api/<UserController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<User> Get(Guid id)
         {
-            return "value";
+            return await _service.GetUserAsync(id);
         }
 
         // POST api/<UserController>
