@@ -12,7 +12,7 @@ namespace FigureDB.WebAPI.MapperProfile
     {
         public NewsProfile()
         {
-            CreateMap<News, NewsDTO>().ForMember(dest => dest.CoverImageId, opt => opt.MapFrom(src => src.Figure.CoverImageId));
+            //CreateMap<News, NewsDTO>().ForMember(dest => dest.CoverImageId, opt => opt.MapFrom(src => src.Figure.CoverImageId));
         }
     }
 }

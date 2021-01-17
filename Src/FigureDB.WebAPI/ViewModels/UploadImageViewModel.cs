@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using FigureDB.Model.Enum;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,14 @@ namespace FigureDB.WebAPI.ViewModels
     public class UploadImageViewModel
     {
         [FromForm]
-        public IFormFile file { get; set; }
+        public IFormFile File { get; set; }
         [FromForm]
-        public Guid id { get; set; }        
+        public string ParentId { get; set; }
         [FromForm]
-        public string imageType { get; set; }
+        public string ImageType { get; set; }
+        [FromForm]
+        public bool IsCover { get; set; }
+        [FromForm]
+        public FigureImageType FigureImageType { get; set; }
     }
 }

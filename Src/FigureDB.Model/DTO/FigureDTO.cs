@@ -51,31 +51,6 @@ namespace FigureDB.Model.DTO
         public string Manufacturer { get; set; }
 
         /// <summary>
-        /// 报价
-        /// </summary>
-        //public IList<Offer> Offers { get; set; }
-
-        /// <summary>
-        /// 新闻
-        /// </summary>
-        //public IList<News> News { get; set; }
-
-        /// <summary>
-        /// 收藏
-        /// </summary>
-        //public IList<Favorite> Favorites { get; set; }
-
-        /// <summary>
-        /// 商店
-        /// </summary>
-        //public IList<Shop> Shops { get; set; }
-
-        /// <summary>
-        /// 评论
-        /// </summary>
-        //public IList<Comment> Comments { get; set; }
-
-        /// <summary>
         /// 原型作品
         /// </summary>
         public string Origin { get; set; }
@@ -93,20 +68,7 @@ namespace FigureDB.Model.DTO
         /// <summary>
         /// 封面图片
         /// </summary>
-        public Guid CoverImageId { get; set; }
-        /// <summary>
-        /// 图片外键
-        /// </summary>
-        public IList<Guid> FigureImages { get; set; }
+        public string CoverImagePath { get; set; }
 
-        /// <summary>
-        /// 模型-标签
-        /// </summary>
-        //public IList<FigureTag> FigureTags { get; set; }
-
-        /// <summary>
-        /// 制作人
-        /// </summary>
-        //public IList<ArtistJob> ArtistJobs { get; set; }
     }
 }

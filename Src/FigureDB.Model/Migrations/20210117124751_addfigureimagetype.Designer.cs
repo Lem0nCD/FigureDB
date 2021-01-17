@@ -4,14 +4,16 @@ using FigureDB.Model.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FigureDB.Model.Migrations
 {
     [DbContext(typeof(MainContext))]
-    partial class MainContextModelSnapshot : ModelSnapshot
+    [Migration("20210117124751_addfigureimagetype")]
+    partial class addfigureimagetype
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -237,11 +239,17 @@ namespace FigureDB.Model.Migrations
                     b.Property<int>("CharacterId")
                         .HasColumnType("int");
 
+                    b.Property<Guid?>("CoverImageId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime2");
 
                     b.Property<float?>("Dimensions")
                         .HasColumnType("real");
+
+                    b.Property<Guid>("FigureImageId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("FigureTypeId")
                         .HasColumnType("int");
@@ -317,7 +325,8 @@ namespace FigureDB.Model.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FigureId");
+                    b.HasIndex("FigureId")
+                        .IsUnique();
 
                     b.HasIndex("ImageId");
 
@@ -827,8 +836,8 @@ namespace FigureDB.Model.Migrations
             modelBuilder.Entity("FigureDB.Model.Entities.FigureImage", b =>
                 {
                     b.HasOne("FigureDB.Model.Entities.Figure", "Figure")
-                        .WithMany("FigureImages")
-                        .HasForeignKey("FigureId")
+                        .WithOne("FigureImage")
+                        .HasForeignKey("FigureDB.Model.Entities.FigureImage", "FigureId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

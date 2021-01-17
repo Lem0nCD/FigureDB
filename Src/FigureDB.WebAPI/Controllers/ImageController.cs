@@ -2,6 +2,7 @@
 using FigureDB.IService;
 using FigureDB.Model.DTO;
 using FigureDB.Model.Entities;
+using FigureDB.Model.Enum;
 using FigureDB.WebAPI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -18,10 +19,11 @@ namespace FigureDB.WebAPI.Controllers
     [ApiController]
     public class ImageController : ControllerBase
     {
-        private readonly IFigureImageService _service;
+        private readonly IImageService _service;
+        private readonly IFigureImageService _figureImageService;
         private readonly IMapper _mapper;
 
-        public ImageController(IFigureImageService service, IMapper mapper)
+        public ImageController(IImageService service, IMapper mapper)
         {
             _service = service ?? throw new ArgumentNullException(nameof(service));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
@@ -46,56 +48,44 @@ namespace FigureDB.WebAPI.Controllers
         [HttpPost]
         public async Task<UnifyResponseDto> Post([FromForm] UploadImageViewModel viewModel)
         {
-            var file = viewModel.file;
+            var file = viewModel.File;
             if (file != null && file.Length > 0)
             {
-                string index = "fail";
-                FigureImage figureImage = new FigureImage()
-                {
-                    FigureId = viewModel.id
-                };
-                switch (viewModel.imageType)
+                Image image = new Image();
+                string typeIndex = "fail";
+                switch (viewModel.ImageType)
                 {
                     case "figure":
-                        index = viewModel.imageType;
+                        typeIndex = viewModel.ImageType;
                         break;
                     case "user":
-                        index = viewModel.imageType;
+                        typeIndex = viewModel.ImageType;
                         break;
                     default:
                         break;
                 }
-                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "image", index, viewModel.id.ToString());
-                long size = file.Length;
-                string[] contentTypeStrings = file.ContentType.Split('/');
-                if (contentTypeStrings.FirstOrDefault() == "image")
+                string basePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "image", typeIndex, viewModel.ParentId);
+                if (!Directory.Exists(basePath))
                 {
-                    if (!Directory.Exists(path))
-                    {
-                        Directory.CreateDirectory(path);
-                    }
-                    path = Path.Combine(path, figureImage.Id.ToString());
-                    switch (contentTypeStrings.Last())
-                    {
-                        case "jpeg":
-                            path = path + ".jpg";
-                            break;
-                        case "png":
-                            path = path + ".png";
-                            break;
-                    }
-                    using (var stream = System.IO.File.Create(path))
-                    {
-                        await file.CopyToAsync(stream);
-                    }
-                    await _service.CreateFigureImage(figureImage);
-                    return new UnifyResponseDto(Model.Enum.StatusCode.Sucess, new
-                    {
-                        size = size,
-                        id = viewModel.id,
-                        imageId = figureImage.Id.ToString(),
-                    });
+                    Directory.CreateDirectory(basePath);
                 }
+                string fullPath = Path.ChangeExtension(Path.Combine(basePath, image.Id.ToString()), Path.GetExtension(file.FileName));
+                try
+                {
+                    using var stream = System.IO.File.Create(fullPath);
+                    await file.CopyToAsync(stream);
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                await _service.CreateImage(fullPath);
+                if (typeIndex == "figure")
+                {
+                    await _figureImageService.CreateFigureImage(Guid.Parse(viewModel.ParentId), image.Id, viewModel.FigureImageType);
+                }
+                return UnifyResponseDto.Sucess();
             }
             return UnifyResponseDto.Fail();
         }

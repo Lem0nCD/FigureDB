@@ -15,7 +15,7 @@ namespace FigureDB.Model.Context
             modelBuilder.Entity<Comment>().HasOne(x => x.User).WithMany(x => x.Comments).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Favorite>().HasOne(x => x.User).WithMany(x => x.Favorites).OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<FigureImage>().HasOne(x => x.Figure).WithOne(x => x.FigureImage).HasForeignKey<FigureImage>(x => x.FigureId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<FigureImage>().HasOne(x => x.Figure).WithMany(x => x.FigureImages).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<FigureImage>().HasOne(x => x.Image).WithMany(x => x.FigureImages).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<FigureTag>().HasOne(x => x.Figure).WithMany(x => x.FigureTags).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<FigureTag>().HasOne(x => x.Tag).WithMany(x => x.FigureTags).OnDelete(DeleteBehavior.Restrict);

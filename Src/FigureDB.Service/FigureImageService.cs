@@ -2,8 +2,11 @@
 using FigureDB.IRepository;
 using FigureDB.IService;
 using FigureDB.Model.Entities;
+using FigureDB.Model.Enum;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,22 +25,48 @@ namespace FigureDB.Service
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public async Task<FigureImage> CreateFigureImage(FigureImage figureImage)
+        public async Task<bool> CreateFigureImage(Guid figureId, Guid imageId, FigureImageType type)
         {
-            if (figureImage == null || figureImage.FigureId ==Guid.Empty)
+            FigureImage figureImage = new FigureImage()
             {
-                throw new ArgumentNullException(nameof(figureImage));
-            }
+                FigureId = figureId,
+                ImageId = imageId,
+                FigureImageType = type
+            };
             await _repository.InsertAsync(figureImage);
-            try
+            return await _unitOfWork.CommitAsync();
+        }
+        public async Task<bool> CreateFigureImage(Guid figureId, Guid imageId)
+        {
+            FigureImage figureImage = new FigureImage()
             {
-                await _unitOfWork.CommitAsync();
-                return figureImage;
-            }
-            catch (Exception)
+                FigureId = figureId,
+                ImageId = imageId,
+            };
+            await _repository.InsertAsync(figureImage);
+            return await _unitOfWork.CommitAsync();
+        }
+
+        public async Task<bool> CreateFigureImages(Guid figureId, IEnumerable<Guid> imageId)
+        {
+            foreach (var id in imageId)
             {
-                throw;
+                await _repository.InsertAsync(new FigureImage()
+                {
+                    FigureId = figureId,
+                    ImageId = id
+                });
             }
+            return await _unitOfWork.CommitAsync();
+
+        }
+
+        public async Task<List<FigureImage>> GetFigureImageByFigureId(Guid figureId)
+        {
+            return await _repository.Find()
+                .Where(fi => fi.FigureId == figureId)
+                .Include(fi => fi.Image)
+                .ToListAsync();
         }
     }
 }

@@ -42,11 +42,6 @@ namespace FigureDB.Model.Entities
         public DateTime? Release { get; set; }
 
         /// <summary>
-        /// 封面图片
-        /// </summary>
-        public Guid? CoverImageId { get; set; }
-
-        /// <summary>
         /// 发行商
         /// </summary>
         public int PublishedId { get; set; }
@@ -102,10 +97,9 @@ namespace FigureDB.Model.Entities
         public Series Series { get; set; }
 
         /// <summary>
-        /// 图片外键
+        /// 模型-图片
         /// </summary>
-        public Guid FigureImageId { get; set; }
-        public FigureImage FigureImage { get; set; }
+        public IList<FigureImage> FigureImages { get; set; }
 
         /// <summary>
         /// 模型-标签

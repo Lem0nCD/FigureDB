@@ -1,4 +1,5 @@
 ﻿using FigureDB.Model.Entities;
+using FigureDB.Model.Enum;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +9,9 @@ namespace FigureDB.IService
 {
     public interface IFigureImageService
     {
-        public Task<FigureImage> CreateFigureImage(FigureImage figureImage);
+        public Task<bool> CreateFigureImage(Guid figureId, Guid imageId, FigureImageType type);
+        public Task<bool> CreateFigureImage(Guid figureId, Guid imageId);
+        public Task<bool> CreateFigureImages(Guid figureId, IEnumerable<Guid> imageId);
+        public Task<List<FigureImage>> GetFigureImageByFigureId(Guid figureId);
     }
 }
