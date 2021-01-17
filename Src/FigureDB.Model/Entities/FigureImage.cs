@@ -9,6 +9,13 @@ namespace FigureDB.Model.Entities
     public class FigureImage : BaseEntityGuid
     {
         /// <summary>
+        /// 手办图片类型
+        /// </summary>
+        public FigureImageType FigureImageType { get; set; } = FigureImageType.Detail;
+
+        public IList<Recommand> Recommands { get; set; }
+
+        /// <summary>
         /// 手办外键
         /// </summary>
         public Guid FigureId { get; set; }
@@ -21,6 +28,5 @@ namespace FigureDB.Model.Entities
         /// <summary>
         /// 图片类型
         /// </summary>
-        public FigureImageType FigureImageType { get; set; } = FigureImageType.Deatil;
     }
 }

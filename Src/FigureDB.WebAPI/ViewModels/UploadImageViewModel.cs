@@ -14,9 +14,7 @@ namespace FigureDB.WebAPI.ViewModels
         [FromForm]
         public string ParentId { get; set; }
         [FromForm]
-        public string ImageType { get; set; }
-        [FromForm]
-        public bool IsCover { get; set; }
+        public string ImageIndex { get; set; }
         [FromForm]
         public FigureImageType FigureImageType { get; set; }
     }

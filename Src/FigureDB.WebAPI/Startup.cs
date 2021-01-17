@@ -15,6 +15,8 @@ using System.IO;
 using System.Reflection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Logging;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting.Server.Features;
 
 namespace FigureDB.WebAPI
 {
@@ -76,7 +78,6 @@ namespace FigureDB.WebAPI
             });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
         }
 
         public void ConfigureContainer(ContainerBuilder builder)

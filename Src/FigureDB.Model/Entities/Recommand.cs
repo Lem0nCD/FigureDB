@@ -10,8 +10,8 @@ namespace FigureDB.Model.Entities
         /// <summary>
         /// 封面图片
         /// </summary>
-        public Guid ImageId { get; set; }
-        public Image Image { get; set; }
+        public Guid FigureImageId { get; set; }
+        public FigureImage FigureImage { get; set; }
         /// <summary>
         /// 内容
         /// </summary>

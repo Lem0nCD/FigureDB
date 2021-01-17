@@ -25,7 +25,6 @@ namespace FigureDB.Model.Context
             modelBuilder.Entity<Figure>().HasOne(x => x.Published).WithMany(x => x.Publiceds).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Figure>().HasOne(x => x.Manufacturer).WithMany(x => x.Manufacturers).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Figure>().HasOne(x => x.Series).WithMany(x => x.Figures).OnDelete(DeleteBehavior.Restrict);
-            //modelBuilder.Entity<Figure>().HasOne(x => x.FigureType).WithOne(x => x.Figure).OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<FigureType>().HasOne(x => x.Figure).WithOne(x => x.FigureType).HasForeignKey<FigureType>(x => x.FigureId) .OnDelete(DeleteBehavior.Restrict);
 
@@ -33,7 +32,7 @@ namespace FigureDB.Model.Context
             modelBuilder.Entity<Offer>().HasOne(x => x.Figure).WithMany(x => x.Offers).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Offer>().HasOne(x => x.Shop).WithMany(x => x.Offers).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Recommand>().HasOne(x => x.Figure).WithMany(x => x.Recommands).OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Recommand>().HasOne(x => x.Image).WithOne(x => x.Recommand).HasForeignKey<Recommand>(x => x.ImageId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Recommand>().HasOne(x => x.FigureImage).WithMany(x => x.Recommands).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<UserIdentity>().HasOne(x => x.User).WithMany(x => x.UserIdentitys).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Shop>().HasOne(x => x.User).WithOne(x => x.Shop).HasForeignKey<Shop>(x => x.UserId).OnDelete(DeleteBehavior.Restrict);
         }

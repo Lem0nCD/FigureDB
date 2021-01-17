@@ -6,8 +6,8 @@ namespace FigureDB.Model.Enum
 {
     public enum FigureImageType
     {
-        Cover = 0,
-        Deatil,
+        Detail = 0,
+        Cover,
         Thumb
     }
 }

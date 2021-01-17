@@ -9,7 +9,5 @@ namespace FigureDB.Model.Entities
     {
         public string Path { get; set; }
         public IList<FigureImage> FigureImages { get; set; }
-        public Guid RecommandId { get; set; }
-        public Recommand Recommand { get; set; }
     }
 }

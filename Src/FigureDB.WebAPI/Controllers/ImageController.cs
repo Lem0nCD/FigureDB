@@ -23,10 +23,11 @@ namespace FigureDB.WebAPI.Controllers
         private readonly IFigureImageService _figureImageService;
         private readonly IMapper _mapper;
 
-        public ImageController(IImageService service, IMapper mapper)
+        public ImageController(IImageService service, IMapper mapper, IFigureImageService figureImageService)
         {
             _service = service ?? throw new ArgumentNullException(nameof(service));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _figureImageService = figureImageService ?? throw new ArgumentNullException(nameof(figureImageService));
         }
         // GET: api/<ImageController>
         [HttpGet]
@@ -53,34 +54,36 @@ namespace FigureDB.WebAPI.Controllers
             {
                 Image image = new Image();
                 string typeIndex = "fail";
-                switch (viewModel.ImageType)
+                switch (viewModel.ImageIndex)
                 {
                     case "figure":
-                        typeIndex = viewModel.ImageType;
+                        typeIndex = viewModel.ImageIndex;
                         break;
                     case "user":
-                        typeIndex = viewModel.ImageType;
+                        typeIndex = viewModel.ImageIndex;
                         break;
                     default:
                         break;
                 }
-                string basePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "image", typeIndex, viewModel.ParentId);
-                if (!Directory.Exists(basePath))
+                string relativeBasePath = Path.Combine("image", typeIndex, viewModel.ParentId);
+                string absolutBasePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", relativeBasePath);
+                string relativeFilePath = Path.ChangeExtension(Path.Combine(relativeBasePath, image.Id.ToString()), Path.GetExtension(file.FileName));
+                string absolutFilePath = Path.ChangeExtension(Path.Combine(absolutBasePath,image.Id.ToString()), Path.GetExtension(file.FileName));
+                if (!Directory.Exists(absolutBasePath))
                 {
-                    Directory.CreateDirectory(basePath);
+                    Directory.CreateDirectory(absolutBasePath);
                 }
-                string fullPath = Path.ChangeExtension(Path.Combine(basePath, image.Id.ToString()), Path.GetExtension(file.FileName));
                 try
                 {
-                    using var stream = System.IO.File.Create(fullPath);
+                    using var stream = System.IO.File.Create(absolutFilePath);
                     await file.CopyToAsync(stream);
-
                 }
                 catch (Exception)
                 {
                     throw;
                 }
-                await _service.CreateImage(fullPath);
+                image.Path = relativeFilePath;
+                await _service.CreateImage(image);
                 if (typeIndex == "figure")
                 {
                     await _figureImageService.CreateFigureImage(Guid.Parse(viewModel.ParentId), image.Id, viewModel.FigureImageType);
