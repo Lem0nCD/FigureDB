@@ -17,7 +17,6 @@ namespace FigureDB.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class OfferController : ControllerBase
     {
         private readonly IOfferService _service;
@@ -32,21 +31,15 @@ namespace FigureDB.WebAPI.Controllers
         }
 
         // GET: api/<OfferController>
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<List<OfferDTO>> Get(Guid figureId)
         {
             var offers = await _service.GetOfferByFigureId(figureId);
             return _mapper.Map<List<OfferDTO>>(offers);
         }
 
-        // GET api/<OfferController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST api/<OfferController>
+        [Authorize]
         [HttpPost]
         public async Task<UnifyResponseDto> Post(OfferViewModel viewModel)
         {

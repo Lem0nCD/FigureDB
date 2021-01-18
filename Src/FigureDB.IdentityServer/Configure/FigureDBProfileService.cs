@@ -33,9 +33,11 @@ namespace FigureDB.IdentityServer.Configure
                 List<Claim> claims = new List<Claim>()
                 {
 
-                    new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                    new Claim(JwtRegisteredClaimNames.Email, user.Email ?? string.Empty),
-                    new Claim(JwtRegisteredClaimNames.GivenName, user.Nickname ?? string.Empty),
+                    new Claim(JwtClaimTypes.Subject, user.Id.ToString()),
+                    new Claim(JwtClaimTypes.Email, user.Email ?? string.Empty),
+                    new Claim(JwtClaimTypes.NickName, user.Nickname ?? string.Empty),
+                    new Claim(JwtClaimTypes.PhoneNumber, user.PhoneNumber ?? string.Empty),
+                    new Claim(JwtClaimTypes.Picture, user.Avatar ?? string.Empty),
                 };
 
                 context.AddRequestedClaims(claims);

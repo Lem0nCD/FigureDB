@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 namespace FigureDB.WebAPI.ViewModels
 {
     public class ParametersViewModel : IValidatableObject
-    //public class ParametersViewModel 
     {
         private int index;
         public int Index

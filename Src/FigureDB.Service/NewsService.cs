@@ -39,6 +39,8 @@ namespace FigureDB.Service
                 .Take(size)
                 .OrderByDescending(n => n.CreateTime)
                 .Include(n => n.Figure)
+                .ThenInclude(f => f.FigureImages)
+                .ThenInclude(fi => fi.Image)
                 .ToListAsync();
             int total = await _repository.Find()
                 .Where(_ => true)

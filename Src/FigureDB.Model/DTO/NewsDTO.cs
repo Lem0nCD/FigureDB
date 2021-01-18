@@ -9,7 +9,7 @@ namespace FigureDB.Model.DTO
     {
         public string Title { get; set; }
         public string Content { get; set; }
-        public string CoverImageId { get; set; }
+        public string CoverImagePath { get; set; }
         public Guid FigureId { get; set; }
     }
 }

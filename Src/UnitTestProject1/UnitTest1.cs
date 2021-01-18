@@ -280,10 +280,10 @@ namespace FigureDB.UnitTest
             var context = new MainContext(CreateDbContextOptions(constr));
             var user = new User()
             {
-                Email = "alice@emali.com",
-                Nickname = "alice",
+                Email = "123@emali.com",
+                Nickname = "123",
             };
-            var userIdentitys = new UserIdentity(Model.Entity.IdentityType.Password, EncryptUtil.Encrypt("alice"), user.Id);
+            var userIdentitys = new UserIdentity(Model.Entity.IdentityType.Password, EncryptUtil.Encrypt("123"), user.Id);
             context.Add<User>(user);
             context.Add<UserIdentity>(userIdentitys);
 
