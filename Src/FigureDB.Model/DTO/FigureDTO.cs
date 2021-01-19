@@ -70,5 +70,6 @@ namespace FigureDB.Model.DTO
         /// </summary>
         public string CoverImagePath { get; set; }
 
+        public decimal Price { get; set; }
     }
 }

@@ -11,6 +11,6 @@ namespace FigureDB.IService
         public Task<User> GetUserAsync(Guid id);
         public Task<User> GetUserAsync(string nickName);
         public Task<List<User>> GetUsersAsync();
-        public Task<bool> CreateUserAsync();
+        public Task<bool> CreateUserAsync(User user, string password);
     }
 }

@@ -1,9 +1,13 @@
 ﻿using AutoMapper;
 using FigureDB.IRepository;
 using FigureDB.IService;
+using FigureDB.Model.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace FigureDB.Service
 {
@@ -18,6 +22,11 @@ namespace FigureDB.Service
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        }
+
+        public async Task<List<FigureType>> GetFigureTypes()
+        {
+            return await _repository.Find().Where(_ => true).ToListAsync();
         }
     }
 }

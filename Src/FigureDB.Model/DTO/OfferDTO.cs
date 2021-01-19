@@ -7,7 +7,7 @@ namespace FigureDB.Model.DTO
     public class OfferDTO
     {
         public decimal Price { get; set; }
-        public string Shopname { get; set; }
+        public string ShopName { get; set; }
         public string HomePage { get; set; }
     }
 }

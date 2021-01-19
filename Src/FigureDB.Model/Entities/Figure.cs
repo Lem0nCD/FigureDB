@@ -37,6 +37,11 @@ namespace FigureDB.Model.Entities
         public string Materials { get; set; }
 
         /// <summary>
+        /// 价格
+        /// </summary>
+        public decimal? Price { get; set; }
+
+        /// <summary>
         /// 发售日（出荷）
         /// </summary>
         public DateTime? Release { get; set; }
