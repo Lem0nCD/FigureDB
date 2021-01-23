@@ -264,9 +264,6 @@ namespace FigureDB.Model.Migrations
                     b.Property<int>("OriginId")
                         .HasColumnType("int");
 
-                    b.Property<decimal?>("Price")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("PublishedId")
                         .HasColumnType("int");
 

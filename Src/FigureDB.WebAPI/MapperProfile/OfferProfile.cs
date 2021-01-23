@@ -13,7 +13,7 @@ namespace FigureDB.WebAPI.MapperProfile
         public OfferProfile()
         {
             CreateMap<Offer, OfferDTO>()
-                .ForMember(dest => dest.ShopName, opt => opt.MapFrom(src => src.Shop.Name))
+                .ForMember(dest => dest.Shopname, opt => opt.MapFrom(src => src.Shop.Name))
                 .ForMember(dest => dest.HomePage, opt => opt.MapFrom(src => src.Shop.Homepage));
         }
     }

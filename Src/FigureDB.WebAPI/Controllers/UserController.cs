@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FigureDB.WebAPI.ViewModels;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -45,14 +44,8 @@ namespace FigureDB.WebAPI.Controllers
 
         // POST api/<UserController>
         [HttpPost]
-        public async Task<UnifyResponseDto> Post(UserViewModel viewModel)
+        public void Post([FromBody] string value)
         {
-            User user = _mapper.Map<User>(viewModel);
-            if (await _service.CreateUserAsync(user, viewModel.Password))
-            {
-                return UnifyResponseDto.Sucess();
-            }
-            return UnifyResponseDto.Fail();
         }
 
         // PUT api/<UserController>/5

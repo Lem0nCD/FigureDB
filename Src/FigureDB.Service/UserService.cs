@@ -14,10 +14,17 @@ namespace FigureDB.Service
     public class UserService : IUserService
     {
         private readonly IUserRepository _repository;
-        private readonly IUserIdentityRepository _userIdentityRepository;
+        //private readonly IUserIdentityService _identitySvc;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
+        //public UserService(IGenericRepository<User, Guid> repository, /*IUserIdentityService identitySvc,*/ IMapper mapper, IUnitOfWork unitOfWork)
+        //{
+        //    this._repository = repository ?? throw new ArgumentNullException(nameof(repository));
+        //    //_identitySvc = identitySvc ?? throw new ArgumentNullException(nameof(identitySvc));
+        //    _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        //    _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+        //}
 
         public UserService(IUserRepository repository, IMapper mapper, IUnitOfWork unitOfWork)
         {
@@ -26,22 +33,30 @@ namespace FigureDB.Service
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        public async Task<bool> CreateUserAsync(User user, string password)
+        //public UserService(IGenericRepository<User, Guid> repository,IUnitOfWork unitOfWork)
+        //{
+        //    this._repository = repository ?? throw new ArgumentNullException(nameof(repository));
+        //    _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+        //}
+
+        public async Task<bool> CreateUserAsync()
         {
+            User user = new User()
+            {
+                Email = "545643@.com"
+            };
             bool result = false;
             if (user != null)
             {
                 await _repository.InsertAsync(user);
+                result = await _unitOfWork.CommitAsync();
             }
-            UserIdentity identity = new UserIdentity(Model.Entity.IdentityType.Password, password, user.Id);
-            await _userIdentityRepository.InsertAsync(identity);
-            result = await _unitOfWork.CommitAsync();
             return result;
         }
 
         public async Task<User> GetUserAsync(Guid id)
         {
-            return await _repository.FindAsync(id);
+           return await _repository.FindAsync(id);
         }
 
 

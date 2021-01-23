@@ -32,9 +32,9 @@ namespace FigureDB.WebAPI.Controllers
 
         // GET: api/<OfferController>
         [HttpGet("{id}")]
-        public async Task<List<OfferDTO>> Get(Guid id)
+        public async Task<List<OfferDTO>> Get(Guid figureId)
         {
-            var offers = await _service.GetOfferByFigureId(id);
+            var offers = await _service.GetOfferByFigureId(figureId);
             return _mapper.Map<List<OfferDTO>>(offers);
         }
 
