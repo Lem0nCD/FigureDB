@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FigureDB.IdentityServer.Configure.FigureDBProfileService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAIAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Configure\FigureDBProfileService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FigureDB.IdentityServer.Configure.FigureDBResourceOwnerPasswordValidator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Configure\FigureDBResourceOwnerPasswordValidator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.AccountController">
+    <Position X="16" Y="5.5" Width="1.75" />
+    <Members>
+      <Field Name="_users" Hidden="true" />
+      <Method Name="AccessDenied" Hidden="true" />
+      <Method Name="BuildLoggedOutViewModelAsync" Hidden="true" />
+      <Method Name="BuildLoginViewModelAsync" Hidden="true" />
+      <Method Name="BuildLogoutViewModelAsync" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAIAAAAQAAAEAAAAJAAAAAAIABAIAUAAIQAAA=</HashCode>
+      <FileName>Quickstart\Account\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.AccountOptions" Collapsed="true">
+    <Position X="17.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAIAAQAAAAGAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quickstart\Account\AccountOptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.ExternalController" Collapsed="true">
+    <Position X="22.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAIAAIAAQAABAIAAAAIAAAAAAAAIAQEA=</HashCode>
+      <FileName>Quickstart\Account\ExternalController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.ExternalProvider" Collapsed="true">
+    <Position X="24.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quickstart\Account\ExternalProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.LoggedOutViewModel" Collapsed="true">
+    <Position X="15.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgCAAAAAAgAAAgAAAAQAAAAEAAQAAAAAAAAAA=</HashCode>
+      <FileName>Quickstart\Account\LoggedOutViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.LoginInputModel">
+    <Position X="11" Y="8.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAEIAAAAAAAA=</HashCode>
+      <FileName>Quickstart\Account\LoginInputModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.LoginViewModel">
+    <Position X="10" Y="10.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAEBAAAAABBAAAAAAACA=</HashCode>
+      <FileName>Quickstart\Account\LoginViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.LogoutInputModel">
+    <Position X="6.25" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quickstart\Account\LogoutInputModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.LogoutViewModel">
+    <Position X="6" Y="8.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quickstart\Account\LogoutViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.RedirectViewModel" Collapsed="true">
+    <Position X="20.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quickstart\Account\RedirectViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.ConsentController" Collapsed="true">
+    <Position X="20.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAIAAAAAAABAAAAAAIAAAIAIAAAEAAAoAAAA=</HashCode>
+      <FileName>Quickstart\Consent\ConsentController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.ConsentInputModel">
+    <Position X="8" Y="0.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAQAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAABAAA=</HashCode>
+      <FileName>Quickstart\Consent\ConsentInputModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.ConsentOptions" Collapsed="true">
+    <Position X="22.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEABAAAAAAAAAAAgAAAAAAQQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quickstart\Consent\ConsentOptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.ConsentViewModel">
+    <Position X="9.5" Y="3" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAEAAAAAAACAQAAAAAAAACQ=</HashCode>
+      <FileName>Quickstart\Consent\ConsentViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.ProcessConsentResult" Collapsed="true">
+    <Position X="17.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAQAAAAAAEABAAAAAAAAAQBAAAAQ=</HashCode>
+      <FileName>Quickstart\Consent\ProcessConsentResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.ScopeViewModel" Collapsed="true">
+    <Position X="22.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAEgAACAAAAAAAEAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Quickstart\Consent\ScopeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.DeviceAuthorizationInputModel">
+    <Position X="6.25" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quickstart\Device\DeviceAuthorizationInputModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.DeviceAuthorizationViewModel">
+    <Position X="10.25" Y="6" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Quickstart\Device\DeviceAuthorizationViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.DeviceController" Collapsed="true">
+    <Position X="24.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAYAAABAAABAAAAAAIAAAIAIAAAEAAAoAQAA=</HashCode>
+      <FileName>Quickstart\Device\DeviceController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.DiagnosticsController" Collapsed="true">
+    <Position X="15.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Quickstart\Diagnostics\DiagnosticsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.DiagnosticsViewModel" Collapsed="true">
+    <Position X="17.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Quickstart\Diagnostics\DiagnosticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.GrantsController" Collapsed="true">
+    <Position X="19" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAgAAAAAAAAAAAAAAAAAAAIIAAAECAAIAAAA=</HashCode>
+      <FileName>Quickstart\Grants\GrantsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.GrantsViewModel" Collapsed="true">
+    <Position X="20.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quickstart\Grants\GrantsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.GrantViewModel" Collapsed="true">
+    <Position X="22.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAgAAgACAAAAAAAASAYAAAAAAAACA=</HashCode>
+      <FileName>Quickstart\Grants\GrantsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.ErrorViewModel" Collapsed="true">
+    <Position X="19" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quickstart\Home\ErrorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.HomeController" Collapsed="true">
+    <Position X="24.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAIAAAIAAAAAEAAAIAAAA=</HashCode>
+      <FileName>Quickstart\Home\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.Extensions" Collapsed="true">
+    <Position X="20.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Quickstart\Extensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.SecurityHeadersAttribute" Collapsed="true">
+    <Position X="24.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Quickstart\SecurityHeadersAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdentityServerHost.Quickstart.UI.TestUsers" Collapsed="true">
+    <Position X="17.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quickstart\TestUsers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.IdentityServer.Config" Collapsed="true">
+    <Position X="19" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACACAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Config.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.IdentityServer.Program" Collapsed="true">
+    <Position X="19" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.IdentityServer.Startup" Collapsed="true">
+    <Position X="15.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAQAAAAABAAAAAAAAAAAAAgAAACAAAAAA=</HashCode>
+      <FileName>Startup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

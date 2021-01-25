@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FigureDB.Service.CharacterService" BaseTypeListCollapsed="true">
+    <Position X="6" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAABAAAAACgABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CharacterService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FigureDB.Service.CommentService" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAgABAAAAQAAAQAAAAAAAAAAAQAA=</HashCode>
+      <FileName>CommentService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FigureDB.Service.CompanyService" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAABAQAAAAgABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CompanyService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FigureDB.Service.FavoriteService" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="2" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAABAAAAAAgABAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>FavoriteService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FigureDB.Service.FigureImageService" BaseTypeListCollapsed="true">
+    <Position X="13" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAIAAgABAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>FigureImageService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FigureDB.Service.FigureService" BaseTypeListCollapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgABAAACAAAAARAAAIAAAAAAAAA=</HashCode>
+      <FileName>FigureService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FigureDB.Service.FigureTagService" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAQAAAAAAAAAAgABAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>FigureTagService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FigureDB.Service.FigureTypeService" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAgABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FigureTypeService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FigureDB.Service.ImageService" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAABAAAAAAgABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ImageService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FigureDB.Service.NewsService" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAABAAAAAAgABAAAAAAAAAAABAAAAAAgAAAA=</HashCode>
+      <FileName>NewsService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FigureDB.Service.OfferService" BaseTypeListCollapsed="true">
+    <Position X="6" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAABAAAAAAgABAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>OfferService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FigureDB.Service.OriginService" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAoABAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OriginService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FigureDB.Service.SeriesService" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAgABAAAAAAEAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>SeriesService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FigureDB.Service.ShopService" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAgABAAAAQAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShopService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FigureDB.Service.TagService" BaseTypeListCollapsed="true">
+    <Position X="13" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAABAABAAAoABAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>TagService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FigureDB.Service.UserIdentityService" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="5.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAgAABAAAAAAgABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserIdentityService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FigureDB.Service.UserService" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAgABAAAAAAAAABAAAAAAAQAABAA=</HashCode>
+      <FileName>UserService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

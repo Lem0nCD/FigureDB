@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FigureDB.WebAPI.Controllers.CharacterController">
+    <Position X="5.25" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABQAAABAAAACAEAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\CharacterController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.WebAPI.Controllers.CommentController">
+    <Position X="7" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABQAAABAAAACAEAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\CommentController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.WebAPI.Controllers.CompanyController">
+    <Position X="8.75" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABQAAABAAAACAEAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\CompanyController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.WebAPI.Controllers.FavoriteController">
+    <Position X="10.5" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABQAAABAAAACAEAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\FavoriteController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.WebAPI.Controllers.FigureController">
+    <Position X="5.25" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAABQAAABAAAADAEAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\FigureController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.WebAPI.Controllers.ImageController">
+    <Position X="7" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABQAAABAAAACAEAAAAAAAAAAAgAAAg=</HashCode>
+      <FileName>Controllers\ImageController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.WebAPI.Controllers.NewsController">
+    <Position X="8.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABQAAABAAAACAEAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\NewsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.WebAPI.Controllers.OfferController">
+    <Position X="10.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABQAAABAAAACAEAEAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\OfferController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.WebAPI.Controllers.OriginController">
+    <Position X="5.25" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABQAAABAAAACAEAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\OriginController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.WebAPI.Controllers.SeriesController">
+    <Position X="7" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABQAAABAAAACAEAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\SeriesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.WebAPI.Controllers.ShopController">
+    <Position X="2.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABQAAABAAAACAEAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\ShopController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.WebAPI.Controllers.TagController">
+    <Position X="10.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABQAAABAAAACAEAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\TagController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.WebAPI.Controllers.TestController">
+    <Position X="5.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAABAAAAAAAAACAEAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\TestController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.WebAPI.Controllers.UserController">
+    <Position X="7" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABQAAABAAAACAEAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Controllers\UserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FigureDB.WebAPI.Controllers.WeatherForecastController">
+    <Position X="8.75" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEBAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\WeatherForecastController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
