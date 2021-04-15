@@ -291,6 +291,18 @@ namespace FigureDB.UnitTest
 
 
         }
+        [TestMethod]
+        public async Task CreateFigureType()
+        {
+            var context = new MainContext(CreateDbContextOptions(constr));
+            var figureType = new FigureType()
+            {
+                FigureId = Guid.Parse("E743F8F1-96FE-47DD-BDE0-D61B201994BB"),
+                Name = "’≥Õ¡»À"
+            };
+            context.Add<FigureType>(figureType);
+            await context.SaveChangesAsync();
+        }
         //[TestMethod]
         //public async Task QueryUser()
         //{

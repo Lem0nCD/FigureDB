@@ -70,5 +70,9 @@ namespace FigureDB.Model.DTO
         /// </summary>
         public string CoverImagePath { get; set; }
 
+        /// <summary>
+        /// 类型名字
+        /// </summary>
+        public string FigureType { get; set; }
     }
 }

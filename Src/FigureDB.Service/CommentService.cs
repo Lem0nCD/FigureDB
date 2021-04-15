@@ -41,6 +41,7 @@ namespace FigureDB.Service
         {
             List<Comment> comments = await _repository
                 .Find()
+                .Include(c => c.User)
                 .Where(c => c.FigureId == id)
                 .OrderByDescending(c => c.CreateTime)
                 .Skip(index * size)

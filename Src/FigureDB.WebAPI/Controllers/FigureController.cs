@@ -19,15 +19,17 @@ namespace FigureDB.WebAPI.Controllers
     {
         private readonly IFigureService _service;
         private readonly IFigureTagService _figureTagService;
+        private readonly IFigureTypeService _figureTypeService;
         private readonly INewsService _newsService;
         private readonly IMapper _mapper;
 
-        public FigureController(IFigureService service, IMapper mapper, IFigureTagService figureTagService, INewsService newsService)
+        public FigureController(IFigureService service, IMapper mapper, IFigureTagService figureTagService, INewsService newsService, IFigureTypeService figureTypeService)
         {
             _service = service ?? throw new ArgumentNullException(nameof(service));
             _figureTagService = figureTagService ?? throw new ArgumentNullException(nameof(figureTagService));
             _newsService = newsService ?? throw new ArgumentNullException(nameof(newsService));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _figureTypeService = figureTypeService ?? throw new ArgumentNullException(nameof(figureTypeService));
         }
 
         // GET: api/<FigureController>
@@ -58,7 +60,8 @@ namespace FigureDB.WebAPI.Controllers
             };
             if (await _service.CreateFigure(figure)
                 && await _figureTagService.CreateFigureTags(figure.Id, viewmodel.Tags)
-                && await _newsService.CreateNews(news))
+                && await _newsService.CreateNews(news)
+                && await _figureTypeService.CreateFigureType(figure.Id,viewmodel.FigureType))
             {
                 var figureDTO = _mapper.Map<FigureDTO>(figure);
                 return new UnifyResponseDto(

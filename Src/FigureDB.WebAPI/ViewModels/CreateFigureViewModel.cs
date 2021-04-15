@@ -61,6 +61,10 @@ namespace FigureDB.WebAPI.ViewModels
         /// </summary>
         public int SeriesId { get; set; }
 
+        /// <summary>
+        /// 模型类型
+        /// </summary>
+        public string FigureType { get; set; }
         public List<int> Tags { get; set; }
     }
 }
