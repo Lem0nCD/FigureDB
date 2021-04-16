@@ -13,5 +13,6 @@ namespace FigureDB.IService
         public Task<bool> CreateFigureImage(Guid figureId, Guid imageId);
         public Task<bool> CreateFigureImages(Guid figureId, IEnumerable<Guid> imageId);
         public Task<List<FigureImage>> GetFigureImageByFigureId(Guid figureId);
+        public Task<FigureImage> GetFigureCoverImageByFigureId(Guid figureId);
     }
 }

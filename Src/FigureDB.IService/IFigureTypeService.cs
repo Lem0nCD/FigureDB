@@ -9,6 +9,7 @@ namespace FigureDB.IService
     public interface IFigureTypeService
     {
         public Task<List<FigureType>> GetAllFigureType();
+        public Task<List<List<FigureType>>> GetRecommandFigure();
         public Task<bool> CreateFigureType(Guid figureId, string name);
 
     }

@@ -61,6 +61,14 @@ namespace FigureDB.Service
 
         }
 
+        public async Task<FigureImage> GetFigureCoverImageByFigureId(Guid figureId)
+        {
+            return await _repository.Find()
+                .Where(fi => fi.FigureId == figureId && fi.FigureImageType == FigureImageType.Cover)
+                .Include(fi => fi.Image)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<List<FigureImage>> GetFigureImageByFigureId(Guid figureId)
         {
             return await _repository.Find()

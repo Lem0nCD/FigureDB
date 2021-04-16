@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using FigureDB.IService;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +14,25 @@ namespace FigureDB.WebAPI.Controllers
     [ApiController]
     public class RecommandController : ControllerBase
     {
+        private readonly IFigureService _service;
+        private readonly IFigureTypeService _figureTypeService;
+        private readonly INewsService _newsService;
+        private readonly IMapper _mapper;
+
+        public RecommandController(IFigureService service, IMapper mapper, INewsService newsService, IFigureTypeService figureTypeService)
+        {
+            _service = service ?? throw new ArgumentNullException(nameof(service));
+            _newsService = newsService ?? throw new ArgumentNullException(nameof(newsService));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _figureTypeService = figureTypeService ?? throw new ArgumentNullException(nameof(figureTypeService));
+        }
         // GET: api/<RecommandController>
         [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        //public async IEnumerable<string> Get()
+        //{
+        //    List<List<Model.Entities.FigureType>> typeList = await _figureTypeService.GetRecommandFigure();
+
+        //}
 
         // GET api/<RecommandController>/5
         [HttpGet("{id}")]

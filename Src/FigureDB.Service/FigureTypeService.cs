@@ -39,5 +39,21 @@ namespace FigureDB.Service
         {
             return await _repository.Find().Where(_ => true).ToListAsync();
         }
+
+        public async Task<List<List<FigureType>>> GetRecommandFigure()
+        {
+            var list1 = await _repository.Find().Where(x => x.Name == "手办").OrderByDescending(x => x.CreateTime).Take(8).ToListAsync();
+            var list2 = await _repository.Find().Where(x => x.Name == "粘土人").OrderByDescending(x => x.CreateTime).Take(8).ToListAsync();
+            var list3 = await _repository.Find().Where(x => x.Name == "高达").OrderByDescending(x => x.CreateTime).Take(8).ToListAsync();
+            var list4 = await _repository.Find().Where(x => x.Name == "其他").OrderByDescending(x => x.CreateTime).Take(8).ToListAsync();
+            var list5 = await _repository.Find().Where(_ => true).OrderByDescending(x => x.Id).Take(6).ToListAsync();
+            List<List<FigureType>> bigList = new List<List<FigureType>>();
+            bigList.Add(list1);
+            bigList.Add(list2);
+            bigList.Add(list3);
+            bigList.Add(list4);
+            bigList.Add(list5);
+            return bigList;
+        }
     }
 }

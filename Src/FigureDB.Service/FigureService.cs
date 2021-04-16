@@ -48,6 +48,7 @@ namespace FigureDB.Service
         public async Task<PaginationDTO<FigureDTO>> GetFigures(int index, int size)
         {
             var figures = await _rpository.Find()
+                .OrderByDescending(x => x.CreateTime)
                 .Skip(index * size)
                 .Take(size)
                 .Include(x => x.Manufacturer)

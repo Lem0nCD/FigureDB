@@ -1,4 +1,4 @@
-using FigureDB.Common;
+ï»¿using FigureDB.Common;
 using FigureDB.Model.Context;
 using FigureDB.Model.Entities;
 using FigureDB.Repository;
@@ -37,57 +37,57 @@ namespace FigureDB.UnitTest
                 new Tag()
                 {
                     Color = "#ed6faC",
-                    Name = "Å®"
+                    Name = "å¥³"
                 },
                 new Tag()
                 {
                     Color = "#2db7f5",
-                    Name = "ÄĞ"
+                    Name = "ç”·"
                 },
                 new Tag()
                 {
                     Color = "#ED6FAC",
-                    Name = "ÎŞĞÔ±ğ"
+                    Name = "æ— æ€§åˆ«"
                 },
                 new Tag()
                 {
                     Color = "#ED6FAC",
-                    Name = "È«ÄêÁä"
+                    Name = "å…¨å¹´é¾„"
                 },
                 new Tag()
                 {
                     Color = "#ED6FAC",
-                    Name = "¾°Æ·"
+                    Name = "æ™¯å“"
                 },
                 new Tag()
                 {
                     Color = "#ED6FAC",
-                    Name = "ÈËĞÎ"
+                    Name = "äººå½¢"
                 },
                 new Tag()
                 {
                     Color = "#ED6FAC",
-                    Name = "»ú¼×"
+                    Name = "æœºç”²"
                 },
                 new Tag()
                 {
                     Color = "#ED6FAC",
-                    Name = "¿É¶¯"
+                    Name = "å¯åŠ¨"
                 },
                 new Tag()
                 {
                     Color = "#ED6FAC",
-                    Name = "Æ´×°"
+                    Name = "æ‹¼è£…"
                 },
                 new Tag()
                 {
                     Color = "#ED6FAC",
-                    Name = "¹ÖÊŞ"
+                    Name = "æ€ªå…½"
                 },
                 new Tag()
                 {
                     Color = "#ED6FAC",
-                    Name = "»úĞµ "
+                    Name = "æœºæ¢° "
                 },
 
             };
@@ -104,9 +104,9 @@ namespace FigureDB.UnitTest
             var context = new MainContext(CreateDbContextOptions(constr));
             context.Add<Company>(new Company
             {
-                CHNName = "ÊÀ¼Î",
-                Name = "¥»¥¬",
-                Homepage = "http://sega.jp/",
+                Name = "ãƒã‚»ã‚¬ãƒ¯",
+                CHNName = "é•¿è°·å·æ¨¡å‹",
+                Homepage = "http://www.hasegawa-model.co.jp/",
             });
             context.SaveChanges();
         }
@@ -116,9 +116,9 @@ namespace FigureDB.UnitTest
             var context = new MainContext(CreateDbContextOptions(constr));
             context.Add<Origin>(new Origin
             {
-                Name = "ĞÂÊÀ¼o¥¨¥ô¥¡¥ó¥²¥ê¥ª¥ó",
-                CHNName = "ĞÂÊÀ¼Í¸£ÒôÕ½Ê¿",
-                About = "2000Äê£¬Ò»¸ö¿ÆÑ§Ì½ÏÕ¶ÓÔÚÄÏ¼«ÖŞÕë¶Ô±»³Æ×÷¡°µÚÒ»Ê¹Í½¡±ÑÇµ±µÄ¡°¹âÖ®¾ŞÈË¡±½øĞĞÌ½ÏÕ¡£ÔÚ¶ÔÆä½øĞĞ½Ó´¥ÊµÑéÊ±£¬¡°¹âÖ®¾ŞÈË¡±×Ô»Ù£¬´Ó¶ø·¢ÉúÁË¡°µÚ¶ş´Î³å»÷¡±£¬½ø¶øµ¼ÖÂÊÀ½ç´óÕ½¡£×îºó£¬ÈËÀàÈË¿Ú¼õ°ë£¬µØÖáÆ«×ª¡¢Æøºò¸Ä±ä¡£¸ù¾İ¶Ô¡°µÚ¶ş´Î³å»÷¡±µÄµ÷²é£¬ÁªºÏ¹úÔÚÈÕ±¾Ïä¸ù³ÉÁ¢ÈË¹¤½ø»¯ÑĞ¾¿Ëù£¨¼´ GEHIRN£©´ÓÊÂEVA£¨Ö¸»úÆ÷ÈË£©µÄ·¢Õ¹ÑĞ¾¿£¬ºóGEHIRNÀûÓÃÔÚÈË¹¤½ø»¯ÑĞ¾¿ËùÏÂ·½·¢ÏÖµÄ¾Ş´ó¿Õ¶´½¨ÔìÁË×Ü²¿¡£ÁíÒ»·½Ãæ£¬ÁªºÏ¹úÏÂÊôÃØÃÜ×éÖ¯SEELEÎªÁËÊ¹ÈËÀà½ø»¯£¬¿ªÊ¼ÊµĞĞÈËÀà²¹Íê¼Æ»®£¬¾ÍÊÇ½«ËùÓĞÈËµÄÁé»ê»ã¼¯ÔÚÒ»Æğ£¬Í¨¹ıÖĞºÍÃ¿¸öÈËµÄATÁ¦³¡£¬Ê¹Ã¿¸öÈË»Ø¹éLCLÖ®º£¡£2004Äê£¬EVA³õºÅ»ú½øĞĞÆô¶¯ÊÔÑéÊ±·¢ÉúÊÂ¹Ê£¬íÖÕæËÃµÄÄ¸Ç×íÖÎ¨ÏûÊ§£¬íÖÔ´¶É¿ªÊ¼Ö´ĞĞ¡°íÖÔ´¶É°æ±¾µÄÈËÀà²¹Íê¼Æ»®¡±¡£2010Äê£¬GEHIRN±»¸Ä½¨³ÉNERV¡£2015Äê¿ªÊ¼£¬¸ù¾İSEELEÈËÀà²¹Íê¼Æ»®¾ç±¾µÄ°²ÅÅ£¬Ò»ÖÖ¾ŞĞÍÈËĞÎÉúÎï¡°Ê¹Í½¡±¿ªÊ¼ÔÚÈÕ±¾µÇÂ½£¬²¢ÏòNERV×Ü²¿½ø¹¥£¬NERV×éÖ¯EVAÏûÃğÊ¹Í½¡£ÔÚNERVÓëÊ¹Í½×÷Õ½µÄÍ¬Ê±£¬íÖÔ´¶ÉÃØÃÜµØÖ´ĞĞËü×Ô¼ºµÄ¼Æ»®¡£Ëæ×ÅÊ±¼äÍÆÒÆ£¬íÖÔ´¶ÉµÄ¼Æ»®Öğ½¥±»SEELE·¢ÏÖ£¬NERVÓëSEELE²úÉúÁËÃ¬¶Ü²¢²»¶Ï¶ñ»¯¡£Director's Cut°æ±¾µÄµÚ21¡«24¼¯ÓÉ¾ç³¡°æ¡¶Death¡·Æª¼ô¼­¶ø³É£¬ÊÕÂ¼ÔÚ20ÖÜÄê¼ÍÄî°æµÄÀ¶¹âÖĞ¡£"
+                Name = "æ©Ÿå‹•æˆ¦å£«ã‚¬ãƒ³ãƒ€ãƒ ",
+                CHNName = "æœºåŠ¨æˆ˜å£«é«˜è¾¾",
+                About = ""
             });
             context.SaveChanges();
         }
@@ -128,8 +128,8 @@ namespace FigureDB.UnitTest
             var context = new MainContext(CreateDbContextOptions(constr));
             context.Add<Character>(new Character
             {
-                Name = "¾c²¨¥ì¥¤",
-                CHNName = "ç±²¨Àö",
+                Name = "å…¶ä»–",
+                CHNName = "å…¶ä»–",
             });
             context.SaveChanges();
         }
@@ -139,9 +139,9 @@ namespace FigureDB.UnitTest
             var context = new MainContext(CreateDbContextOptions(constr));
             context.Add<Series>(new Series
             {
-                Name = "EVAÏµÁĞ ÃÔÄã³ÂÁĞÆ·ÊÖ°ì¡«Q¡«feat.ÈıÔÂ°ËÈÕVol.3",
-                CHNName = "	¥¨¥ô¥¡¥ó¥²¥ê¥ª¥ó¥·¥ê©`¥º ¥ß¥Ë¥Ç¥£¥¹¥×¥ì¥¤¥Õ¥£¥®¥å¥¢¡«Q¡«feat.ÈıÔÂ°ËÈÕVol.3",
-                CompanyId = 1,
+                Name = "ãƒã‚»ã‚¬ãƒ¯ 1/72 é£›è¡Œæ©Ÿã‚·ãƒªãƒ¼ã‚º",
+                CHNName = "é•¿è°·å· 1/72 é£æœºç³»åˆ—",
+                CompanyId = 5,
             });
             context.SaveChanges();
         }
@@ -153,13 +153,13 @@ namespace FigureDB.UnitTest
             {
                 new Artist()
                 {
-                    Name = "ËÉÆÖÔª˜ä",
-                    CHNName = "ËÉÆÖÔªÊ÷",
+                    Name = "æ¾æµ¦å…ƒæ¨¹",
+                    CHNName = "æ¾æµ¦å…ƒæ ‘",
                 },
                 new Artist()
                 {
-                    Name = "ÈıÔÂ°ËÈÕ",
-                    CHNName = "ÈıÔÂ°ËÈÕ",
+                    Name = "ä¸‰æœˆå…«æ—¥",
+                    CHNName = "ä¸‰æœˆå…«æ—¥",
                 },
             };
             foreach (var item in artists)
@@ -176,11 +176,11 @@ namespace FigureDB.UnitTest
             {
                 new Job()
                 {
-                    Name = "Ô­ĞÍ",
+                    Name = "åŸå‹",
                 },
                 new Job()
                 {
-                    Name = "Ô­»­",
+                    Name = "åŸç”»",
                 },
             };
             foreach (var item in jobs)
@@ -196,11 +196,11 @@ namespace FigureDB.UnitTest
             context.Add<Figure>(new Figure
             {
                 CharacterId = 1,
-                CHNName = "EVAÏµÁĞ ÃÔÄã³ÂÁĞÆ·ÊÖ°ì¡«Q¡«feat.ÈıÔÂ°ËÈÕVol.3 ĞÂÊÀ¼ÍEVA ¸ğ³ÇÃÀÀï",
+                CHNName = "EVAç³»åˆ— è¿·ä½ é™ˆåˆ—å“æ‰‹åŠï½Qï½feat.ä¸‰æœˆå…«æ—¥Vol.3 æ–°ä¸–çºªEVA è‘›åŸç¾é‡Œ",
                 Dimensions = 0,
                 ManufacturerId = 1,
                 Materials = "PVC, ABS",
-                Name = "¥¨¥ô¥¡¥ó¥²¥ê¥ª¥ó¥·¥ê©`¥º ¥ß¥Ë¥Ç¥£¥¹¥×¥ì¥¤¥Õ¥£¥®¥å¥¢¡«Q¡«feat.ÈıÔÂ°ËÈÕVol.3 ĞÂÊÀ¼o¥¨¥ô¥¡¥ó¥²¥ê¥ª¥ó ¸ğ³Ç¥ß¥µ¥È",
+                Name = "ã‚¨ãƒ´ã‚¡ãƒ³ã‚²ãƒªã‚ªãƒ³ã‚·ãƒªãƒ¼ã‚º ãƒŸãƒ‹ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒ•ã‚£ã‚®ãƒ¥ã‚¢ï½Qï½feat.ä¸‰æœˆå…«æ—¥Vol.3 æ–°ä¸–ç´€ã‚¨ãƒ´ã‚¡ãƒ³ã‚²ãƒªã‚ªãƒ³ è‘›åŸãƒŸã‚µãƒˆ",
                 OriginId = 1,
                 PublishedId = 1,
                 Scale = 90f,
@@ -266,8 +266,8 @@ namespace FigureDB.UnitTest
             var context = new MainContext(CreateDbContextOptions(constr));
             context.Add<News>(new News()
             {
-                Content = "EVAÏµÁĞ ÃÔÄã³ÂÁĞÆ·ÊÖ°ì¡«Q¡«feat.ÈıÔÂ°ËÈÕVol.3 ĞÂÊÀ¼ÍEVA ç±²¨Àö",
-                Title = "ÌõÄ¿´´½¨",
+                Content = "EVAç³»åˆ— è¿·ä½ é™ˆåˆ—å“æ‰‹åŠï½Qï½feat.ä¸‰æœˆå…«æ—¥Vol.3 æ–°ä¸–çºªEVA ç»«æ³¢ä¸½",
+                Title = "æ¡ç›®åˆ›å»º",
                 FigureId = Guid.Parse("d5638ee0-0e9f-4912-a1de-cf26ba3033a0")
             });
             context.SaveChanges();
@@ -298,7 +298,7 @@ namespace FigureDB.UnitTest
             var figureType = new FigureType()
             {
                 FigureId = Guid.Parse("E743F8F1-96FE-47DD-BDE0-D61B201994BB"),
-                Name = "Õ³ÍÁÈË"
+                Name = "ç²˜åœŸäºº"
             };
             context.Add<FigureType>(figureType);
             await context.SaveChangesAsync();
